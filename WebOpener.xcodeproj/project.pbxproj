@@ -61,6 +61,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A17E74D259B6DBD003892EA /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		4A17E74E259B6DBD003892EA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4A17E74F259B6DBD003892EA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4A17E750259B6DBD003892EA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F24C0BD325753BE400356583 /* WebOpener.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebOpener.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24C0BD625753BE500356583 /* WebOpener.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WebOpener.entitlements; sourceTree = "<group>"; };
 		F24C0BD725753BE500356583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +125,10 @@
 		F24C0BCA25753BE400356583 = {
 			isa = PBXGroup;
 			children = (
+				4A17E750259B6DBD003892EA /* README.md */,
+				4A17E74D259B6DBD003892EA /* CHANGELOG.md */,
+				4A17E74F259B6DBD003892EA /* .swiftlint.yml */,
+				4A17E74E259B6DBD003892EA /* .gitignore */,
 				F24C0BD525753BE500356583 /* WebOpener */,
 				F24C0BE825753BE600356583 /* WebOpenerTests */,
 				F24C0BF325753BE600356583 /* WebOpenerUITests */,
