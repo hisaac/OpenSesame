@@ -1,14 +1,14 @@
 //
-//  WebOpenerTests.swift
-//  WebOpenerTests
+//  OpenSesameTests.swift
+//  OpenSesameTests
 //
 //  Created by Isaac Halvorson on 11/30/20.
 //
 
-@testable import WebOpener
+@testable import OpenSesame
 import XCTest
 
-class WebOpenerTests: XCTestCase {
+class OpenSesameTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,6 +1,6 @@
 //
 //  SafariExtensionViewController.swift
-//  WebOpener Extension
+//  OpenSesame Extension
 //
 //  Created by Isaac Halvorson on 11/30/20.
 //

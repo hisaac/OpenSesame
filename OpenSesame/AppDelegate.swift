@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  WebOpener
+//  OpenSesame
 //
 //  Created by Isaac Halvorson on 11/30/20.
 //

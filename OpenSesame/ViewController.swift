@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  WebOpener
+//  OpenSesame
 //
 //  Created by Isaac Halvorson on 11/30/20.
 //
@@ -9,8 +9,8 @@ import Cocoa
 import SafariServices.SFSafariApplication
 import SafariServices.SFSafariExtensionManager
 
-let appName = "WebOpener"
-let extensionBundleIdentifier = "software.level.WebOpener.Extension"
+let appName = "OpenSesame"
+let extensionBundleIdentifier = "software.level.OpenSesame.Extension"
 
 class ViewController: NSViewController {
 

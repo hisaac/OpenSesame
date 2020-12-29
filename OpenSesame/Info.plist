@@ -69,7 +69,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>WebOpener-http</string>
+			<string>OpenSesame-http</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>http</string>
@@ -79,7 +79,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>WebOpener-https</string>
+			<string>OpenSesame-https</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>https</string>

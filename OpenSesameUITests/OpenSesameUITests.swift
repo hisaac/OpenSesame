@@ -1,13 +1,13 @@
 //
-//  WebOpenerUITests.swift
-//  WebOpenerUITests
+//  OpenSesameUITests.swift
+//  OpenSesameUITests
 //
 //  Created by Isaac Halvorson on 11/30/20.
 //
 
 import XCTest
 
-class WebOpenerUITests: XCTestCase {
+class OpenSesameUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
