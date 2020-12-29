@@ -31,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 
 		// Expand known shortlinks
+		// swiftlint:disable statement_position
 		if host.contains("t.co") || host.contains("bit.ly") {
 			expandURL(url: url)
 		}
@@ -50,11 +51,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		else {
 			fallbackToDefaultBrowser(url: url)
 		}
+		// swiftlint:enable statement_position
 	}
 
 	func fallbackToDefaultBrowser(url: URL) {
 		guard let safariURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Safari") else { return }
-		NSWorkspace.shared.open([url], withApplicationAt: safariURL, configuration: NSWorkspace.OpenConfiguration(), completionHandler: nil)
+		NSWorkspace.shared.open(
+			[url],
+			withApplicationAt: safariURL,
+			configuration: NSWorkspace.OpenConfiguration(),
+			completionHandler: nil
+		)
 	}
 
 	func expandURL(url: URL) {
@@ -64,17 +71,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 
 	func handleAppleMusicURL(url: URL) {
-		guard let appleMusicAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Music") else { return }
+		guard let appleMusicAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Music") else {
+			return
+		}
 
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 		urlComponents?.scheme = "itms"
 		guard let urlToOpen = urlComponents?.url else { return }
 
-		NSWorkspace.shared.open([urlToOpen], withApplicationAt: appleMusicAppURL, configuration: NSWorkspace.OpenConfiguration(), completionHandler: nil)
+		NSWorkspace.shared.open(
+			[urlToOpen],
+			withApplicationAt: appleMusicAppURL,
+			configuration: NSWorkspace.OpenConfiguration(),
+			completionHandler: nil
+		)
 	}
 
 	func handleSpotifyURL(url: URL) {
-		guard let spotifyAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.spotify.client") else { return }
+		guard let spotifyAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.spotify.client") else {
+			return
+		}
 
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 		urlComponents?.scheme = "spotify"
@@ -87,7 +103,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		guard let urlToOpen = urlComponents?.url else { return }
 
-		NSWorkspace.shared.open([urlToOpen], withApplicationAt: spotifyAppURL, configuration: NSWorkspace.OpenConfiguration(), completionHandler: nil)
+		NSWorkspace.shared.open(
+			[urlToOpen],
+			withApplicationAt: spotifyAppURL,
+			configuration: NSWorkspace.OpenConfiguration(),
+			completionHandler: nil
+		)
 	}
 
 	func handleZoomURL(url: URL) {
@@ -105,7 +126,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		guard let urlToOpen = urlComponents?.url else { return }
 
-		NSWorkspace.shared.open([urlToOpen], withApplicationAt: zoomAppURL, configuration: NSWorkspace.OpenConfiguration(), completionHandler: nil)
+		NSWorkspace.shared.open(
+			[urlToOpen],
+			withApplicationAt: zoomAppURL,
+			configuration: NSWorkspace.OpenConfiguration(),
+			completionHandler: nil
+		)
 	}
 
 }
@@ -122,7 +148,7 @@ extension URL {
 	}
 }
 
-extension Array where Self.Element : Equatable {
+extension Array where Self.Element: Equatable {
 	func doesNotContain(_ element: Element) -> Bool {
 		return self.contains(element).toggled
 	}

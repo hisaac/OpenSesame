@@ -5,8 +5,8 @@
 //  Created by Isaac Halvorson on 11/30/20.
 //
 
-import XCTest
 @testable import WebOpener
+import XCTest
 
 class WebOpenerTests: XCTestCase {
 
