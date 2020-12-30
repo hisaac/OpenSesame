@@ -152,12 +152,12 @@
 		F24C0BD525753BE500356583 /* OpenSesame */ = {
 			isa = PBXGroup;
 			children = (
-				F24C0BD625753BE500356583 /* OpenSesame.entitlements */,
 				F24C0BD725753BE500356583 /* AppDelegate.swift */,
 				F24C0BD925753BE500356583 /* Main.storyboard */,
 				F24C0BDC25753BE500356583 /* ViewController.swift */,
 				F24C0BDE25753BE600356583 /* Assets.xcassets */,
 				F24C0BE025753BE600356583 /* Info.plist */,
+				F24C0BD625753BE500356583 /* OpenSesame.entitlements */,
 			);
 			path = OpenSesame;
 			sourceTree = "<group>";
@@ -525,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_DIR = "$(SRCROOT)/build";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -586,6 +587,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_DIR = "$(SRCROOT)/build";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
