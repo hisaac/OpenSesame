@@ -56,12 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func fallbackToDefaultBrowser(url: URL) {
 		guard let safariURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Safari") else { return }
-		NSWorkspace.shared.open(
-			[url],
-			withApplicationAt: safariURL,
-			configuration: NSWorkspace.OpenConfiguration(),
-			completionHandler: nil
-		)
+		openURLFollowingActivation(url: url, withApplicationAt: safariURL)
 	}
 
 	func expandURL(url: URL) {
@@ -79,12 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		urlComponents?.scheme = "itms"
 		guard let urlToOpen = urlComponents?.url else { return }
 
-		NSWorkspace.shared.open(
-			[urlToOpen],
-			withApplicationAt: appleMusicAppURL,
-			configuration: NSWorkspace.OpenConfiguration(),
-			completionHandler: nil
-		)
+		openURLFollowingActivation(url: urlToOpen, withApplicationAt: appleMusicAppURL)
 	}
 
 	func handleSpotifyURL(url: URL) {
@@ -103,12 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		guard let urlToOpen = urlComponents?.url else { return }
 
-		NSWorkspace.shared.open(
-			[urlToOpen],
-			withApplicationAt: spotifyAppURL,
-			configuration: NSWorkspace.OpenConfiguration(),
-			completionHandler: nil
-		)
+		openURLFollowingActivation(url: urlToOpen, withApplicationAt: spotifyAppURL)
 	}
 
 	func handleZoomURL(url: URL) {
@@ -126,10 +111,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		guard let urlToOpen = urlComponents?.url else { return }
 
+		openURLFollowingActivation(url: urlToOpen, withApplicationAt: zoomAppURL)
+	}
+
+	func openURLFollowingActivation(url: URL, withApplicationAt applicationURL: URL) {
+		let openConfiguration = NSWorkspace.OpenConfiguration()
+		openConfiguration.activates = NSApp.isActive
 		NSWorkspace.shared.open(
-			[urlToOpen],
-			withApplicationAt: zoomAppURL,
-			configuration: NSWorkspace.OpenConfiguration(),
+			[url],
+			withApplicationAt: applicationURL,
+			configuration: openConfiguration,
 			completionHandler: nil
 		)
 	}
