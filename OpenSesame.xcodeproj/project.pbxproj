@@ -21,6 +21,7 @@
 		F24C0C0925753BE600356583 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = F24C0C0825753BE600356583 /* script.js */; };
 		F24C0C0B25753BE600356583 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F24C0C0A25753BE600356583 /* ToolbarItemIcon.pdf */; };
 		F24C0C0E25753BE600356583 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F24C0C0C25753BE600356583 /* SafariExtensionViewController.xib */; };
+		F2885C25259CC83900592B6B /* LSFoundation in Resources */ = {isa = PBXBuildFile; fileRef = F2885C24259CC83900592B6B /* LSFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		F24C0C0D25753BE600356583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		F24C0C0F25753BE600356583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F24C0C1025753BE600356583 /* OpenSesame_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenSesame_Extension.entitlements; sourceTree = "<group>"; };
+		F2885C24259CC83900592B6B /* LSFoundation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LSFoundation; path = ../LSFoundation; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				F24C0BE825753BE600356583 /* OpenSesameTests */,
 				F24C0BF325753BE600356583 /* OpenSesameUITests */,
 				F24C0C0225753BE600356583 /* OpenSesame Extension */,
+				F2885C24259CC83900592B6B /* LSFoundation */,
 				F24C0BFF25753BE600356583 /* Frameworks */,
 				F24C0BD425753BE400356583 /* Products */,
 			);
@@ -232,6 +235,8 @@
 				F24C0BFE25753BE600356583 /* PBXTargetDependency */,
 			);
 			name = "Open Sesame";
+			packageProductDependencies = (
+			);
 			productName = WebOpener;
 			productReference = F24C0BD325753BE400356583 /* Open Sesame.app */;
 			productType = "com.apple.product-type.application";
@@ -326,6 +331,8 @@
 				Base,
 			);
 			mainGroup = F24C0BCA25753BE400356583;
+			packageReferences = (
+			);
 			productRefGroup = F24C0BD425753BE400356583 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -343,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2885C25259CC83900592B6B /* LSFoundation in Resources */,
 				F24C0BDF25753BE600356583 /* Assets.xcassets in Resources */,
 				F24C0BDB25753BE500356583 /* Main.storyboard in Resources */,
 			);
