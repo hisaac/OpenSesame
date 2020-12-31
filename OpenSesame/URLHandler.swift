@@ -38,6 +38,10 @@ enum URLHandler {
 			handleZoomURL(url: url)
 		}
 
+		else if host.hasSuffix("twitter.com") {
+			handleTwitterURL(url: url)
+		}
+
 		else {
 			fallbackToDefaultBrowser(url: url)
 		}
@@ -46,7 +50,7 @@ enum URLHandler {
 
 	private static func fallbackToDefaultBrowser(url: URL) {
 		guard let safariURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Safari") else { return }
-		openURLPassingAppActivation(url: url, withApplicationAt: safariURL)
+		open(url: url, withApplicationAt: safariURL)
 	}
 
 	private static func expandURL(url: URL) {
@@ -57,18 +61,19 @@ enum URLHandler {
 
 	private static func handleAppleMusicURL(url: URL) {
 		guard let appleMusicAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Music") else {
+			fallbackToDefaultBrowser(url: url)
 			return
 		}
 
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 		urlComponents?.scheme = "itms"
-		guard let urlToOpen = urlComponents?.url else { return }
 
-		openURLPassingAppActivation(url: urlToOpen, withApplicationAt: appleMusicAppURL)
+		open(urlComponents: urlComponents, from: url,withApplicationAt: appleMusicAppURL)
 	}
 
 	private static func handleSpotifyURL(url: URL) {
 		guard let spotifyAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.spotify.client") else {
+			fallbackToDefaultBrowser(url: url)
 			return
 		}
 
@@ -81,13 +86,14 @@ enum URLHandler {
 		let path = "/" + url.pathComponents.dropFirst(2).joined(separator: "/")
 		urlComponents?.path = path
 
-		guard let urlToOpen = urlComponents?.url else { return }
-
-		openURLPassingAppActivation(url: urlToOpen, withApplicationAt: spotifyAppURL)
+		open(urlComponents: urlComponents, from: url, withApplicationAt: spotifyAppURL)
 	}
 
 	private static func handleZoomURL(url: URL) {
-		guard let zoomAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "us.zoom.xos") else { return }
+		guard let zoomAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "us.zoom.xos") else {
+			fallbackToDefaultBrowser(url: url)
+			return
+		}
 
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 		urlComponents?.scheme = "zoommtg"
@@ -99,20 +105,67 @@ enum URLHandler {
 			urlComponents?.queryItems?.append(conferenceNumberQueryItem)
 		}
 
-		guard let urlToOpen = urlComponents?.url else { return }
-
-		openURLPassingAppActivation(url: urlToOpen, withApplicationAt: zoomAppURL)
+		open(urlComponents: urlComponents, from: url, withApplicationAt: zoomAppURL)
 	}
 
-	private static func openURLPassingAppActivation(url: URL, withApplicationAt applicationURL: URL) {
-		let openConfiguration = NSWorkspace.OpenConfiguration()
-		openConfiguration.activates = NSApp.isActive
-		NSWorkspace.shared.open(
-			[url],
-			withApplicationAt: applicationURL,
-			configuration: openConfiguration,
-			completionHandler: nil
-		)
+	private static func handleTwitterURL(url: URL) {
+		let twitterBundleIdentifier = "maccatalyst.com.atebits.Tweetie2"
+		guard let twitterAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: twitterBundleIdentifier) else {
+			fallbackToDefaultBrowser(url: url)
+			return
+		}
+
+		open(url: url, withApplicationAt: twitterAppURL)
+	}
+
+	/// This currently works for opening individual posts, but nothing else yet
+	@available(*, unavailable, message: "Tweetbot handler not yet finished")
+	private static func handleTwitterURLUsingTweetbot(url: URL) {
+		let tweetbotBundleIdentifier = "com.tapbots.Tweetbot3Mac"
+		guard let tweetbotAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: tweetbotBundleIdentifier) else {
+			fallbackToDefaultBrowser(url: url)
+			return
+		}
+
+		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
+		urlComponents?.scheme = "tweetbot"
+		urlComponents?.queryItems = nil
+
+		if let path = urlComponents?.path,
+		   path.contains("status") {
+			let pathComponents = path.split(separator: "/")
+			let user = String(pathComponents.first ?? "")
+			let tweetID = String(pathComponents.last ?? "")
+			urlComponents?.host = user
+			urlComponents?.path = "/status/\(tweetID)"
+		} else {
+			fallbackToDefaultBrowser(url: url)
+		}
+
+		open(urlComponents: urlComponents, from: url, withApplicationAt: tweetbotAppURL)
+	}
+
+	private static func open(urlComponents: URLComponents?, from originalURL: URL, withApplicationAt applicationURL: URL) {
+		guard let urlToOpen = urlComponents?.url else {
+			fallbackToDefaultBrowser(url: originalURL)
+			return
+		}
+
+		open(url: urlToOpen, withApplicationAt: applicationURL)
+	}
+
+	private static func open(url: URL, withApplicationAt applicationURL: URL) {
+		// Checking `NSApp.isActive` must be done on the main thread
+		DispatchQueue.main.async {
+			let openConfiguration = NSWorkspace.OpenConfiguration()
+			openConfiguration.activates = NSApp.isActive
+			NSWorkspace.shared.open(
+				[url],
+				withApplicationAt: applicationURL,
+				configuration: openConfiguration,
+				completionHandler: nil
+			)
+		}
 	}
 
 	static func getHTMLHandlers() -> [Bundle] {
@@ -163,5 +216,11 @@ extension Bool {
 		var mutableSelf = self
 		mutableSelf.toggle()
 		return mutableSelf
+	}
+}
+
+extension String {
+	var lastPathComponent: String {
+		return NSString(string: self).lastPathComponent
 	}
 }
