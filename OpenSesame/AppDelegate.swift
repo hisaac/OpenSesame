@@ -12,7 +12,7 @@ import LSFoundation
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
-		let handlers = getHTMLHandlers()
+		let handlers = URLHandler.getHTMLHandlers()
 		print(handlers)
 	}
 
@@ -22,30 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func application(_ application: NSApplication, open urls: [URL]) {
 		URLHandler.handle(urls)
-	}
-
-	func getHTMLHandlers() -> [Bundle] {
-		let htmlUTI = "public.html" as CFString
-
-		guard let htmlViewersCFArray = LSCopyAllRoleHandlersForContentType(htmlUTI, .viewer),
-			  let htmlViewers = htmlViewersCFArray.takeRetainedValue() as? [String] else {
-			return []
-		}
-
-		var viewerBundles: [Bundle] = []
-		for viewer in htmlViewers {
-			guard let viewerURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: viewer),
-				  let viewerBundle = Bundle(url: viewerURL),
-				  let urlTypes = viewerBundle.object(forInfoDictionaryKey: "CFBundleURLTypes") as? [[String: AnyObject]] else {
-				continue
-			}
-			let urlSchemes = urlTypes.compactMap { $0["CFBundleURLSchemes"] as? [String] }
-			if urlSchemes.contains(where: { $0.contains("http") }) {
-                viewerBundles.append(viewerBundle)
-			}
-		}
-
-		return viewerBundles
 	}
 
 }
