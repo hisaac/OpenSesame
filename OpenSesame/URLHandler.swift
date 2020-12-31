@@ -21,7 +21,6 @@ enum URLHandler {
 			return
 		}
 
-		// Expand known shortlinks
 		// swiftlint:disable statement_position
 		if host.contains("t.co") || host.contains("bit.ly") {
 			expandURL(url: url)

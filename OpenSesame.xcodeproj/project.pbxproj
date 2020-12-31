@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4A83C044259C31BA0046068D /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83C043259C31BA0046068D /* URLHandler.swift */; };
+		4A8E9750259D43D100EA159B /* LSFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4A8E974F259D43D100EA159B /* LSFoundation */; };
 		F24C0BD825753BE500356583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C0BD725753BE500356583 /* AppDelegate.swift */; };
 		F24C0BDB25753BE500356583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24C0BD925753BE500356583 /* Main.storyboard */; };
 		F24C0BDD25753BE500356583 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C0BDC25753BE500356583 /* ViewController.swift */; };
@@ -98,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8E9750259D43D100EA159B /* LSFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +238,7 @@
 			);
 			name = "Open Sesame";
 			packageProductDependencies = (
+				4A8E974F259D43D100EA159B /* LSFoundation */,
 			);
 			productName = WebOpener;
 			productReference = F24C0BD325753BE400356583 /* Open Sesame.app */;
@@ -323,7 +326,7 @@
 				};
 			};
 			buildConfigurationList = F24C0BCE25753BE400356583 /* Build configuration list for PBXProject "OpenSesame" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -537,7 +540,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_DIR = "$(SRCROOT)/build";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -599,7 +601,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUILD_DIR = "$(SRCROOT)/build";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -873,6 +874,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A8E974F259D43D100EA159B /* LSFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LSFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F24C0BCB25753BE400356583 /* Project object */;
 }
