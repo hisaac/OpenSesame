@@ -68,7 +68,7 @@ enum URLHandler {
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 		urlComponents?.scheme = "itms"
 
-		open(urlComponents: urlComponents, from: url,withApplicationAt: appleMusicAppURL)
+		open(urlComponents: urlComponents, from: url, withApplicationAt: appleMusicAppURL)
 	}
 
 	private static func handleSpotifyURL(url: URL) {
