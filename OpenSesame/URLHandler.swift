@@ -21,7 +21,7 @@ class URLHandler {
 	func handle(_ url: URL) {
 		guard url != lastURLHandled,
 			  let host = url.host else {
-			fallbackToDefaultBrowser(url: url)
+			fallbackToDefaultBrowser(url)
 			return
 		}
 
@@ -29,46 +29,46 @@ class URLHandler {
 
 		// swiftlint:disable statement_position
 		if host.containsAny(of: "t.co", "bit.ly") {
-			expandURL(url: url)
+			expandURL(url)
 		}
 
 		else if host.containsAny(of: "music.apple.com", "itunes.apple.com") {
-			handleAppleMusicURL(url: url)
+			handleAppleMusicURL(url)
 		}
 
 		else if host.contains("open.spotify.com") {
-			handleSpotifyURL(url: url)
+			handleSpotifyURL(url)
 		}
 
 		else if host.contains("zoom.us"),
 				url.pathComponents.containsNone(of: "saml", "oauth") {
-			handleZoomURL(url: url)
+			handleZoomURL(url)
 		}
 
 		else if host.contains("twitter.com") {
-			handleTwitterURL(url: url)
+			handleTwitterURL(url)
 		}
 
 		else {
-			fallbackToDefaultBrowser(url: url)
+			fallbackToDefaultBrowser(url)
 		}
 		// swiftlint:enable statement_position
 	}
 
-	private func fallbackToDefaultBrowser(url: URL) {
+	private func fallbackToDefaultBrowser(_ url: URL) {
 		guard let safariURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Safari") else { return }
 		open(url: url, withApplicationAt: safariURL)
 	}
 
-	private func expandURL(url: URL) {
+	private func expandURL(_ url: URL) {
 		url.resolveWithCompletionHandler { [weak self] in
 			self?.handle($0)
 		}
 	}
 
-	private func handleAppleMusicURL(url: URL) {
+	private func handleAppleMusicURL(_ url: URL) {
 		guard let appleMusicAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Music") else {
-			fallbackToDefaultBrowser(url: url)
+			fallbackToDefaultBrowser(url)
 			return
 		}
 
@@ -78,9 +78,9 @@ class URLHandler {
 		open(urlComponents: urlComponents, from: url, withApplicationAt: appleMusicAppURL)
 	}
 
-	private func handleSpotifyURL(url: URL) {
+	private func handleSpotifyURL(_ url: URL) {
 		guard let spotifyAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.spotify.client") else {
-			fallbackToDefaultBrowser(url: url)
+			fallbackToDefaultBrowser(url)
 			return
 		}
 
@@ -96,9 +96,9 @@ class URLHandler {
 		open(urlComponents: urlComponents, from: url, withApplicationAt: spotifyAppURL)
 	}
 
-	private func handleZoomURL(url: URL) {
+	private func handleZoomURL(_ url: URL) {
 		guard let zoomAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "us.zoom.xos") else {
-			fallbackToDefaultBrowser(url: url)
+			fallbackToDefaultBrowser(url)
 			return
 		}
 
@@ -115,10 +115,10 @@ class URLHandler {
 		open(urlComponents: urlComponents, from: url, withApplicationAt: zoomAppURL)
 	}
 
-	private func handleTwitterURL(url: URL) {
+	private func handleTwitterURL(_ url: URL) {
 		let twitterBundleIdentifier = "maccatalyst.com.atebits.Tweetie2"
 		guard let twitterAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: twitterBundleIdentifier) else {
-			fallbackToDefaultBrowser(url: url)
+			fallbackToDefaultBrowser(url)
 			return
 		}
 
@@ -127,10 +127,10 @@ class URLHandler {
 
 	/// This currently works for opening individual posts, but nothing else yet
 	@available(*, unavailable, message: "Tweetbot handler not yet finished")
-	private func handleTwitterURLUsingTweetbot(url: URL) {
+	private func handleTwitterURLUsingTweetbot(_ url: URL) {
 		let tweetbotBundleIdentifier = "com.tapbots.Tweetbot3Mac"
 		guard let tweetbotAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: tweetbotBundleIdentifier) else {
-			fallbackToDefaultBrowser(url: url)
+			fallbackToDefaultBrowser(url)
 			return
 		}
 
@@ -146,7 +146,7 @@ class URLHandler {
 			urlComponents?.host = user
 			urlComponents?.path = "/status/\(tweetID)"
 		} else {
-			fallbackToDefaultBrowser(url: url)
+			fallbackToDefaultBrowser(url)
 		}
 
 		open(urlComponents: urlComponents, from: url, withApplicationAt: tweetbotAppURL)
@@ -154,7 +154,7 @@ class URLHandler {
 
 	private func open(urlComponents: URLComponents?, from originalURL: URL, withApplicationAt applicationURL: URL) {
 		guard let urlToOpen = urlComponents?.url else {
-			fallbackToDefaultBrowser(url: originalURL)
+			fallbackToDefaultBrowser(originalURL)
 			return
 		}
 
