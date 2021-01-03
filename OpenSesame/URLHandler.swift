@@ -30,6 +30,9 @@ class URLHandler {
 		}
 	}
 
+	#warning("TODO: Handle Mac App Store URLs")
+	#warning("TODO: Handle Apple News URLs (by opening them in the browser instead")
+
 	func handle(_ url: URL) {
 		guard url != lastURLHandled,
 			  let host = url.host else {
@@ -207,8 +210,11 @@ extension URL {
 		var req = URLRequest(url: originalURL)
 		req.httpMethod = "HEAD"
 
-		URLSession.shared.dataTask(with: req) { body, response, error in
+		let urlSession = URLSession(configuration: .ephemeral)
+		let dataTask = urlSession.dataTask(with: req) { body, response, error in
 			completion(response?.url ?? originalURL)
-		}.resume()
+		}
+		dataTask.priority = 1.0
+		dataTask.resume()
 	}
 }
