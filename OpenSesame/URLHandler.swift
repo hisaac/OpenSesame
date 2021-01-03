@@ -7,19 +7,24 @@
 
 import AppKit
 
-enum URLHandler {
+class URLHandler {
 
-	static func handle(_ urls: [URL]) {
+	private var lastURLHandled: URL?
+
+	func handle(_ urls: [URL]) {
 		for url in urls {
 			handle(url)
 		}
 	}
 
-	static func handle(_ url: URL) {
-		guard let host = url.host else {
+	func handle(_ url: URL) {
+		guard url != lastURLHandled,
+			  let host = url.host else {
 			fallbackToDefaultBrowser(url: url)
 			return
 		}
+
+		lastURLHandled = url
 
 		// swiftlint:disable statement_position
 		if host.contains("t.co") || host.contains("bit.ly") {
@@ -50,18 +55,18 @@ enum URLHandler {
 		// swiftlint:enable statement_position
 	}
 
-	private static func fallbackToDefaultBrowser(url: URL) {
+	private func fallbackToDefaultBrowser(url: URL) {
 		guard let safariURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Safari") else { return }
 		open(url: url, withApplicationAt: safariURL)
 	}
 
-	private static func expandURL(url: URL) {
-		url.resolveWithCompletionHandler {
-			URLHandler.handle($0)
+	private func expandURL(url: URL) {
+		url.resolveWithCompletionHandler { [weak self] in
+			self?.handle($0)
 		}
 	}
 
-	private static func handleAppleMusicURL(url: URL) {
+	private func handleAppleMusicURL(url: URL) {
 		guard let appleMusicAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Music") else {
 			fallbackToDefaultBrowser(url: url)
 			return
@@ -73,7 +78,7 @@ enum URLHandler {
 		open(urlComponents: urlComponents, from: url, withApplicationAt: appleMusicAppURL)
 	}
 
-	private static func handleSpotifyURL(url: URL) {
+	private func handleSpotifyURL(url: URL) {
 		guard let spotifyAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.spotify.client") else {
 			fallbackToDefaultBrowser(url: url)
 			return
@@ -91,7 +96,7 @@ enum URLHandler {
 		open(urlComponents: urlComponents, from: url, withApplicationAt: spotifyAppURL)
 	}
 
-	private static func handleZoomURL(url: URL) {
+	private func handleZoomURL(url: URL) {
 		guard let zoomAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "us.zoom.xos") else {
 			fallbackToDefaultBrowser(url: url)
 			return
@@ -110,7 +115,7 @@ enum URLHandler {
 		open(urlComponents: urlComponents, from: url, withApplicationAt: zoomAppURL)
 	}
 
-	private static func handleTwitterURL(url: URL) {
+	private func handleTwitterURL(url: URL) {
 		let twitterBundleIdentifier = "maccatalyst.com.atebits.Tweetie2"
 		guard let twitterAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: twitterBundleIdentifier) else {
 			fallbackToDefaultBrowser(url: url)
@@ -122,7 +127,7 @@ enum URLHandler {
 
 	/// This currently works for opening individual posts, but nothing else yet
 	@available(*, unavailable, message: "Tweetbot handler not yet finished")
-	private static func handleTwitterURLUsingTweetbot(url: URL) {
+	private func handleTwitterURLUsingTweetbot(url: URL) {
 		let tweetbotBundleIdentifier = "com.tapbots.Tweetbot3Mac"
 		guard let tweetbotAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: tweetbotBundleIdentifier) else {
 			fallbackToDefaultBrowser(url: url)
@@ -147,7 +152,7 @@ enum URLHandler {
 		open(urlComponents: urlComponents, from: url, withApplicationAt: tweetbotAppURL)
 	}
 
-	private static func open(urlComponents: URLComponents?, from originalURL: URL, withApplicationAt applicationURL: URL) {
+	private func open(urlComponents: URLComponents?, from originalURL: URL, withApplicationAt applicationURL: URL) {
 		guard let urlToOpen = urlComponents?.url else {
 			fallbackToDefaultBrowser(url: originalURL)
 			return
@@ -156,7 +161,7 @@ enum URLHandler {
 		open(url: urlToOpen, withApplicationAt: applicationURL)
 	}
 
-	private static func open(url: URL, withApplicationAt applicationURL: URL) {
+	private func open(url: URL, withApplicationAt applicationURL: URL) {
 		// Checking `NSApp.isActive` must be done on the main thread
 		DispatchQueue.main.async {
 			let openConfiguration = NSWorkspace.OpenConfiguration()
@@ -170,7 +175,7 @@ enum URLHandler {
 		}
 	}
 
-	static func getHTMLHandlers() -> [Bundle] {
+	func getHTMLHandlers() -> [Bundle] {
 		let htmlUTI = "public.html" as CFString
 
 		guard let htmlViewersCFArray = LSCopyAllRoleHandlersForContentType(htmlUTI, .viewer),

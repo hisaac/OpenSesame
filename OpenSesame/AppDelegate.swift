@@ -12,10 +12,11 @@ import LSFoundation
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@IBOutlet var window: NSWindow!
+	let urlHandler = URLHandler()
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		NSApp.hide(self)
-		let handlers = URLHandler.getHTMLHandlers()
+		let handlers = urlHandler.getHTMLHandlers()
 		print(handlers)
 	}
 
@@ -25,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func application(_ application: NSApplication, open urls: [URL]) {
 		NSApp.hide(self)
-		URLHandler.handle(urls)
+		urlHandler.handle(urls)
 	}
 
 }
