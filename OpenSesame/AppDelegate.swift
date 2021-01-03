@@ -15,9 +15,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	let urlHandler = URLHandler()
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
+		#warning("Temporary hack for now to make app less annoying")
 		NSApp.hide(self)
-		let handlers = urlHandler.getHTMLHandlers()
-		print(handlers)
+
+		// To be used when implementing default browser choice
+//		let handlers = urlHandler.getHTMLHandlers()
+//		print(handlers)
 	}
 
 	func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

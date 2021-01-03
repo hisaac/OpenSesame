@@ -11,6 +11,18 @@ import LSFoundation
 class URLHandler {
 
 	private var lastURLHandled: URL?
+	private let workspace = NSWorkspace.shared
+
+	private enum HandledBundleIdentifier: String {
+		case music = "com.apple.Music"
+		case tweetbot = "com.tapbots.Tweetbot3Mac"
+		case twitter = "maccatalyst.com.atebits.Tweetie2"
+		case spotify = "com.spotify.client"
+		case zoom = "us.zoom.xos"
+
+		// Implement ability to add arbitrary default browser case
+		case `default` = "com.apple.Safari"
+	}
 
 	func handle(_ urls: [URL]) {
 		for url in urls {
@@ -21,7 +33,7 @@ class URLHandler {
 	func handle(_ url: URL) {
 		guard url != lastURLHandled,
 			  let host = url.host else {
-			fallbackToDefaultBrowser(url)
+			openWithDefaultBrowser(url)
 			return
 		}
 
@@ -50,14 +62,13 @@ class URLHandler {
 		}
 
 		else {
-			fallbackToDefaultBrowser(url)
+			openWithDefaultBrowser(url)
 		}
 		// swiftlint:enable statement_position
 	}
 
-	private func fallbackToDefaultBrowser(_ url: URL) {
-		guard let safariURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Safari") else { return }
-		open(url: url, withApplicationAt: safariURL)
+	private func openWithDefaultBrowser(_ url: URL) {
+		open(url: url, usingApplicationWithBundleIdentifier: .default)
 	}
 
 	private func expandURL(_ url: URL) {
@@ -67,23 +78,12 @@ class URLHandler {
 	}
 
 	private func handleAppleMusicURL(_ url: URL) {
-		guard let appleMusicAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Music") else {
-			fallbackToDefaultBrowser(url)
-			return
-		}
-
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 		urlComponents?.scheme = "itms"
-
-		open(urlComponents: urlComponents, from: url, withApplicationAt: appleMusicAppURL)
+		open(urlComponents: urlComponents, from: url, usingApplicationWithBundleIdentifier: .music)
 	}
 
 	private func handleSpotifyURL(_ url: URL) {
-		guard let spotifyAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.spotify.client") else {
-			fallbackToDefaultBrowser(url)
-			return
-		}
-
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 		urlComponents?.scheme = "spotify"
 
@@ -93,15 +93,10 @@ class URLHandler {
 		let path = "/" + url.pathComponents.dropFirst(2).joined(separator: "/")
 		urlComponents?.path = path
 
-		open(urlComponents: urlComponents, from: url, withApplicationAt: spotifyAppURL)
+		open(urlComponents: urlComponents, from: url, usingApplicationWithBundleIdentifier: .spotify)
 	}
 
 	private func handleZoomURL(_ url: URL) {
-		guard let zoomAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: "us.zoom.xos") else {
-			fallbackToDefaultBrowser(url)
-			return
-		}
-
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 		urlComponents?.scheme = "zoommtg"
 
@@ -112,28 +107,16 @@ class URLHandler {
 			urlComponents?.queryItems?.append(conferenceNumberQueryItem)
 		}
 
-		open(urlComponents: urlComponents, from: url, withApplicationAt: zoomAppURL)
+		open(urlComponents: urlComponents, from: url, usingApplicationWithBundleIdentifier: .zoom)
 	}
 
 	private func handleTwitterURL(_ url: URL) {
-		let twitterBundleIdentifier = "maccatalyst.com.atebits.Tweetie2"
-		guard let twitterAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: twitterBundleIdentifier) else {
-			fallbackToDefaultBrowser(url)
-			return
-		}
-
-		open(url: url, withApplicationAt: twitterAppURL)
+		open(url: url, usingApplicationWithBundleIdentifier: .twitter)
 	}
 
 	/// This currently works for opening individual posts, but nothing else yet
 	@available(*, unavailable, message: "Tweetbot handler not yet finished")
 	private func handleTwitterURLUsingTweetbot(_ url: URL) {
-		let tweetbotBundleIdentifier = "com.tapbots.Tweetbot3Mac"
-		guard let tweetbotAppURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: tweetbotBundleIdentifier) else {
-			fallbackToDefaultBrowser(url)
-			return
-		}
-
 		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
 		urlComponents?.scheme = "tweetbot"
 		urlComponents?.queryItems = nil
@@ -146,33 +129,50 @@ class URLHandler {
 			urlComponents?.host = user
 			urlComponents?.path = "/status/\(tweetID)"
 		} else {
-			fallbackToDefaultBrowser(url)
+			openWithDefaultBrowser(url)
 		}
 
-		open(urlComponents: urlComponents, from: url, withApplicationAt: tweetbotAppURL)
+		open(urlComponents: urlComponents, from: url, usingApplicationWithBundleIdentifier: .tweetbot)
 	}
 
-	private func open(urlComponents: URLComponents?, from originalURL: URL, withApplicationAt applicationURL: URL) {
-		guard let urlToOpen = urlComponents?.url else {
-			fallbackToDefaultBrowser(originalURL)
+	private func open(urlComponents: URLComponents?,
+					  from originalURL: URL,
+					  usingApplicationWithBundleIdentifier bundleIdentifier: HandledBundleIdentifier) {
+		guard let urlFromComponents = urlComponents?.url else {
+			#warning("TODO: Implement real logging")
+			print("Unable to generate URL from URLComponents. Opening original URL in default browser instead.")
+			openWithDefaultBrowser(originalURL)
 			return
 		}
 
-		open(url: urlToOpen, withApplicationAt: applicationURL)
+		open(url: urlFromComponents, usingApplicationWithBundleIdentifier: bundleIdentifier)
 	}
 
-	private func open(url: URL, withApplicationAt applicationURL: URL) {
+	private func open(url: URL, usingApplicationWithBundleIdentifier bundleIdentifier: HandledBundleIdentifier) {
+		guard let applicationURL = workspace.urlForApplication(withBundleIdentifier: bundleIdentifier.rawValue) else {
+			openWithDefaultBrowser(url)
+			return
+		}
+		open(url: url, usingApplicationAt: applicationURL)
+	}
+
+	private func open(url: URL, usingApplicationAt applicationURL: URL) {
 		// Checking `NSApp.isActive` must be done on the main thread
-		DispatchQueue.main.async {
+		DispatchQueue.main.async { [weak self] in
 			let openConfiguration = NSWorkspace.OpenConfiguration()
 			openConfiguration.activates = NSApp.isActive
-			NSWorkspace.shared.open(
+
+			#warning("Temporary hack for now to make app less annoying")
+			if NSApp.isActive {
+				NSApp.hide(self)
+			}
+
+			self?.workspace.open(
 				[url],
 				withApplicationAt: applicationURL,
 				configuration: openConfiguration,
 				completionHandler: nil
 			)
-			NSApp.hide(self)
 		}
 	}
 
@@ -186,7 +186,7 @@ class URLHandler {
 
 		var viewerBundles: [Bundle] = []
 		for viewer in htmlViewers {
-			guard let viewerURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: viewer),
+			guard let viewerURL = workspace.urlForApplication(withBundleIdentifier: viewer),
 				  let viewerBundle = Bundle(url: viewerURL),
 				  let urlTypes = viewerBundle.object(forInfoDictionaryKey: "CFBundleURLTypes") as? [[String: AnyObject]] else {
 				continue
