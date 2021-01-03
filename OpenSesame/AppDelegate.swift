@@ -8,6 +8,7 @@
 import AppKit
 import LSFoundation
 import os.log
+import Preferences
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -25,6 +26,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		return OSLog(subsystem: subsystem, category: category)
 	}()
 
+	lazy var preferencesWindowController = PreferencesWindowController(
+		preferencePanes: [GeneralPreferenceViewController()],
+		hidesToolbarForSingleItem: true
+	)
+
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		statusItemController = StatusItemController(logger: logger)
 		statusItemController?.delegate = self
@@ -33,12 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		print("Current default browser:", OSLaunchServices.defaultHTMLViewerApp ?? "Unknown")
 
 		if Settings.firstLaunch {
-			// Open settings window if this is the first launch
-			// TODO: Once settings window is implemented, open settings window if this is the first launch
-
-			// TODO: To be used when implementing default browser choice
-//			let handlers = urlHandler.getHTMLHandlers()
-//			print(handlers)
+			openPreferencesWindow()
 		}
 
 		#if DEBUG
@@ -47,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		// Temporary hack for now to make app less annoying
 		// TODO: Find a better solution
-		NSApp.hide(self)
+//		NSApp.hide(self)
 	}
 
 	func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
@@ -81,4 +82,11 @@ extension AppDelegate: Enablable {
 
 	}
 
+}
+
+extension AppDelegate: PreferencesWindowDelegate {
+	func openPreferencesWindow() {
+		NSApp.activate(ignoringOtherApps: true)
+		preferencesWindowController.show()
+	}
 }

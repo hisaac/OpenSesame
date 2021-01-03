@@ -246,12 +246,6 @@ class URLHandler {
 			let openConfiguration = NSWorkspace.OpenConfiguration()
 			openConfiguration.activates = NSApp.isActive
 
-			// Temporary hack for now to make app less annoying
-			// TODO: Find a better solution
-			if NSApp.isActive {
-				NSApp.hide(self)
-			}
-
 			self?.workspace.open(
 				[url],
 				withApplicationAt: applicationURL,

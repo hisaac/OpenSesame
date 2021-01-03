@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A1DFA8C25A24DF700E5739E /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DFA8A25A24DF700E5739E /* GeneralPreferenceViewController.swift */; };
+		4A1DFA8D25A24DF700E5739E /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1DFA8B25A24DF700E5739E /* GeneralPreferenceViewController.xib */; };
 		4A906D6525A168CE00CF2A5F /* LSFoundation in Resources */ = {isa = PBXBuildFile; fileRef = 4A906D6425A168CE00CF2A5F /* LSFoundation */; };
 		4A906D6D25A1691900CF2A5F /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A906D6C25A1691900CF2A5F /* URLHandler.swift */; };
 		4A9AB24B25A167AD003842F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9AB24A25A167AD003842F8 /* AppDelegate.swift */; };
@@ -18,10 +20,14 @@
 		4ADA4F6725A2190800893A0A /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6625A2190800893A0A /* Enablable.swift */; };
 		4ADA4F6A25A2198E00893A0A /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6925A2198E00893A0A /* StatusItemController.swift */; };
 		4ADA4F6E25A21ABB00893A0A /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */; };
+		4AE4C9BD25A248E600FDFE28 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE4C9BC25A248E600FDFE28 /* Preferences */; };
+		4AE4C9C425A24AA200FDFE28 /* PreferencesWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4C9C325A24AA200FDFE28 /* PreferencesWindowDelegate.swift */; };
 		4AEA100D25A16B1900D0AF31 /* LSFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4AEA100C25A16B1900D0AF31 /* LSFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A1DFA8A25A24DF700E5739E /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
+		4A1DFA8B25A24DF700E5739E /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
 		4A52A37C25A2037A004CAFDB /* TestURLs.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TestURLs.md; sourceTree = "<group>"; };
 		4A906D6425A168CE00CF2A5F /* LSFoundation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LSFoundation; path = ../LSFoundation; sourceTree = "<group>"; };
 		4A906D6725A168E800CF2A5F /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -41,6 +47,7 @@
 		4ADA4F6625A2190800893A0A /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
 		4ADA4F6925A2198E00893A0A /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		4AE4C9C325A24AA200FDFE28 /* PreferencesWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AEA100D25A16B1900D0AF31 /* LSFoundation in Frameworks */,
+				4AE4C9BD25A248E600FDFE28 /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,11 +88,11 @@
 		4A9AB24925A167AD003842F8 /* OpenSesame */ = {
 			isa = PBXGroup;
 			children = (
+				4AE4C9BA25A248C800FDFE28 /* Preferences */,
 				4A9AB24A25A167AD003842F8 /* AppDelegate.swift */,
 				4ADA4F6925A2198E00893A0A /* StatusItemController.swift */,
 				4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */,
 				4ADA4F6625A2190800893A0A /* Enablable.swift */,
-				4ADA4F5F25A2187600893A0A /* Settings.swift */,
 				4ADA4F6325A2188D00893A0A /* UserDefaultsBacked.swift */,
 				4A906D6C25A1691900CF2A5F /* URLHandler.swift */,
 				4ADA4F5925A20F4F00893A0A /* LaunchServicesMethods.swift */,
@@ -95,6 +103,17 @@
 				4A52A37C25A2037A004CAFDB /* TestURLs.md */,
 			);
 			path = OpenSesame;
+			sourceTree = "<group>";
+		};
+		4AE4C9BA25A248C800FDFE28 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				4ADA4F5F25A2187600893A0A /* Settings.swift */,
+				4AE4C9C325A24AA200FDFE28 /* PreferencesWindowDelegate.swift */,
+				4A1DFA8A25A24DF700E5739E /* GeneralPreferenceViewController.swift */,
+				4A1DFA8B25A24DF700E5739E /* GeneralPreferenceViewController.xib */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 		4AEA100B25A16B1900D0AF31 /* Frameworks */ = {
@@ -124,6 +143,7 @@
 			name = "Open Sesame";
 			packageProductDependencies = (
 				4AEA100C25A16B1900D0AF31 /* LSFoundation */,
+				4AE4C9BC25A248E600FDFE28 /* Preferences */,
 			);
 			productName = OpenSesame;
 			productReference = 4A9AB24725A167AD003842F8 /* Open Sesame.app */;
@@ -152,6 +172,9 @@
 				Base,
 			);
 			mainGroup = 4A9AB23E25A167AD003842F8;
+			packageReferences = (
+				4AE4C9BB25A248E600FDFE28 /* XCRemoteSwiftPackageReference "Preferences" */,
+			);
 			productRefGroup = 4A9AB24825A167AD003842F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1DFA8D25A24DF700E5739E /* GeneralPreferenceViewController.xib in Resources */,
 				4A906D6525A168CE00CF2A5F /* LSFoundation in Resources */,
 				4A9AB24D25A167AE003842F8 /* Assets.xcassets in Resources */,
 				4A9AB25025A167AE003842F8 /* MainMenu.xib in Resources */,
@@ -218,7 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A1DFA8C25A24DF700E5739E /* GeneralPreferenceViewController.swift in Sources */,
 				4ADA4F6725A2190800893A0A /* Enablable.swift in Sources */,
+				4AE4C9C425A24AA200FDFE28 /* PreferencesWindowDelegate.swift in Sources */,
 				4ADA4F6A25A2198E00893A0A /* StatusItemController.swift in Sources */,
 				4ADA4F6E25A21ABB00893A0A /* LocalizedStrings.swift in Sources */,
 				4A906D6D25A1691900CF2A5F /* URLHandler.swift in Sources */,
@@ -423,7 +449,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		4AE4C9BB25A248E600FDFE28 /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		4AE4C9BC25A248E600FDFE28 /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4AE4C9BB25A248E600FDFE28 /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
 		4AEA100C25A16B1900D0AF31 /* LSFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LSFoundation;

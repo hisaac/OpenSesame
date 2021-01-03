@@ -8,9 +8,11 @@
 import AppKit
 import os.log
 
+typealias StatusItemControllerDelegate = Enablable & PreferencesWindowDelegate
+
 class StatusItemController {
 
-	weak var delegate: Enablable?
+	weak var delegate: StatusItemControllerDelegate?
 	private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	private (set) var isEnabled = false
 	private let logger: OSLog
@@ -34,6 +36,12 @@ class StatusItemController {
 			NSMenuItem.separator(),
 			debugMenuItem,
 			NSMenuItem.separator(),
+			NSMenuItem(
+				title: "Preferences…",
+				action: #selector(openPreferencesWindow),
+				keyEquivalent: ",",
+				target: self
+			),
 			NSMenuItem(
 				title: LocalizedStrings.aboutOpenSesameMenuItemTitle,
 				action: #selector(openAboutPanel),
@@ -66,6 +74,11 @@ class StatusItemController {
 	}()
 
 	// MARK: - Menu Item Actions
+
+	@objc
+	private func openPreferencesWindow() {
+		delegate?.openPreferencesWindow()
+	}
 
 	/// Opens Plain Pasta's About page, currently the app's website
 	@objc
