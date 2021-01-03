@@ -25,7 +25,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 
 	func application(_ application: NSApplication, open urls: [URL]) {
-		NSApp.hide(self)
 		urlHandler.handle(urls)
 	}
 

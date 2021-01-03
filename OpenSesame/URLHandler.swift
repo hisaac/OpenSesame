@@ -6,6 +6,7 @@
 //
 
 import AppKit
+import LSFoundation
 
 class URLHandler {
 
@@ -27,11 +28,11 @@ class URLHandler {
 		lastURLHandled = url
 
 		// swiftlint:disable statement_position
-		if host.contains("t.co") || host.contains("bit.ly") {
+		if host.containsAny(of: "t.co", "bit.ly") {
 			expandURL(url: url)
 		}
 
-		else if host.contains("music.apple.com") {
+		else if host.containsAny(of: "music.apple.com", "itunes.apple.com") {
 			handleAppleMusicURL(url: url)
 		}
 
@@ -40,12 +41,11 @@ class URLHandler {
 		}
 
 		else if host.contains("zoom.us"),
-				url.pathComponents.doesNotContain("saml"),
-				url.pathComponents.doesNotContain("oauth") {
+				url.pathComponents.containsNone(of: "saml", "oauth") {
 			handleZoomURL(url: url)
 		}
 
-		else if host.hasSuffix("twitter.com") {
+		else if host.contains("twitter.com") {
 			handleTwitterURL(url: url)
 		}
 
@@ -172,6 +172,7 @@ class URLHandler {
 				configuration: openConfiguration,
 				completionHandler: nil
 			)
+			NSApp.hide(self)
 		}
 	}
 
@@ -209,25 +210,5 @@ extension URL {
 		URLSession.shared.dataTask(with: req) { body, response, error in
 			completion(response?.url ?? originalURL)
 		}.resume()
-	}
-}
-
-extension Array where Self.Element: Equatable {
-	func doesNotContain(_ element: Element) -> Bool {
-		return self.contains(element).toggled
-	}
-}
-
-extension Bool {
-	var toggled: Bool {
-		var mutableSelf = self
-		mutableSelf.toggle()
-		return mutableSelf
-	}
-}
-
-extension String {
-	var lastPathComponent: String {
-		return NSString(string: self).lastPathComponent
 	}
 }
