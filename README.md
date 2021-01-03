@@ -7,3 +7,7 @@
 ## ToDo
 
 - Use an `NSPredicateEditor` to build rules
+
+## Attribution
+
+- Icon image is [Upload by ProSymbols from the Noun Project](https://thenounproject.com/search/?q=link+arrow&i=521959)

@@ -73,15 +73,6 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>http</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>CFBundleURLName</key>
-			<string>OpenSesame-https</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
 				<string>https</string>
 			</array>
 		</dict>
@@ -90,6 +81,11 @@
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

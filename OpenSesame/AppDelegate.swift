@@ -5,22 +5,49 @@
 //  Created by Isaac Halvorson on 11/30/20.
 //
 
-import Cocoa
+import AppKit
 import LSFoundation
+import os.log
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@IBOutlet var window: NSWindow!
 	let urlHandler = URLHandler()
+	var statusItemController: StatusItemController?
+
+	// TODO: Create custom logger class that uses `Logger` or `OSLog` depending on the operating system
+	// https://developer.apple.com/documentation/os/logging/generating_log_messages_from_your_code
+	// https://nshipster.com/swift-log/
+	let logger: OSLog = {
+		let subsystem = Bundle.main.bundleIdentifier ?? ""
+		let category = #file
+		return OSLog(subsystem: subsystem, category: category)
+	}()
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
-		#warning("Temporary hack for now to make app less annoying")
-		NSApp.hide(self)
+		statusItemController = StatusItemController(logger: logger)
+		statusItemController?.delegate = self
+		statusItemController?.enable()
 
-		// To be used when implementing default browser choice
-//		let handlers = urlHandler.getHTMLHandlers()
-//		print(handlers)
+		print("Current default browser:", OSLaunchServices.defaultHTMLViewerApp ?? "Unknown")
+
+		if Settings.firstLaunch {
+			// Open settings window if this is the first launch
+			// TODO: Once settings window is implemented, open settings window if this is the first launch
+
+			// TODO: To be used when implementing default browser choice
+//			let handlers = urlHandler.getHTMLHandlers()
+//			print(handlers)
+		}
+
+		#if DEBUG
+		Settings.debugEnabled = true
+		#endif
+
+		// Temporary hack for now to make app less annoying
+		// TODO: Find a better solution
+		NSApp.hide(self)
 	}
 
 	func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
@@ -29,6 +56,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func application(_ application: NSApplication, open urls: [URL]) {
 		urlHandler.handle(urls)
+	}
+
+}
+
+extension AppDelegate: Enablable {
+	private(set) var isEnabled: Bool {
+		get { Settings.urlHandlingEnabled }
+		set {
+			Settings.urlHandlingEnabled = newValue
+			if newValue {
+				enable()
+			} else {
+				disable()
+			}
+		}
+	}
+
+	func enable() {
+
+	}
+
+	func disable() {
+
 	}
 
 }

@@ -12,10 +12,17 @@
 		4A9AB24B25A167AD003842F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9AB24A25A167AD003842F8 /* AppDelegate.swift */; };
 		4A9AB24D25A167AE003842F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9AB24C25A167AE003842F8 /* Assets.xcassets */; };
 		4A9AB25025A167AE003842F8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9AB24E25A167AE003842F8 /* MainMenu.xib */; };
+		4ADA4F5A25A20F4F00893A0A /* LaunchServicesMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F5925A20F4F00893A0A /* LaunchServicesMethods.swift */; };
+		4ADA4F6025A2187600893A0A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F5F25A2187600893A0A /* Settings.swift */; };
+		4ADA4F6425A2188D00893A0A /* UserDefaultsBacked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6325A2188D00893A0A /* UserDefaultsBacked.swift */; };
+		4ADA4F6725A2190800893A0A /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6625A2190800893A0A /* Enablable.swift */; };
+		4ADA4F6A25A2198E00893A0A /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6925A2198E00893A0A /* StatusItemController.swift */; };
+		4ADA4F6E25A21ABB00893A0A /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */; };
 		4AEA100D25A16B1900D0AF31 /* LSFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4AEA100C25A16B1900D0AF31 /* LSFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A52A37C25A2037A004CAFDB /* TestURLs.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TestURLs.md; sourceTree = "<group>"; };
 		4A906D6425A168CE00CF2A5F /* LSFoundation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LSFoundation; path = ../LSFoundation; sourceTree = "<group>"; };
 		4A906D6725A168E800CF2A5F /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		4A906D6825A168E800CF2A5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -28,6 +35,12 @@
 		4A9AB24F25A167AE003842F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4A9AB25125A167AE003842F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9AB25225A167AE003842F8 /* OpenSesame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenSesame.entitlements; sourceTree = "<group>"; };
+		4ADA4F5925A20F4F00893A0A /* LaunchServicesMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchServicesMethods.swift; sourceTree = "<group>"; };
+		4ADA4F5F25A2187600893A0A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		4ADA4F6325A2188D00893A0A /* UserDefaultsBacked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBacked.swift; sourceTree = "<group>"; };
+		4ADA4F6625A2190800893A0A /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
+		4ADA4F6925A2198E00893A0A /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+		4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +81,18 @@
 			isa = PBXGroup;
 			children = (
 				4A9AB24A25A167AD003842F8 /* AppDelegate.swift */,
+				4ADA4F6925A2198E00893A0A /* StatusItemController.swift */,
+				4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */,
+				4ADA4F6625A2190800893A0A /* Enablable.swift */,
+				4ADA4F5F25A2187600893A0A /* Settings.swift */,
+				4ADA4F6325A2188D00893A0A /* UserDefaultsBacked.swift */,
 				4A906D6C25A1691900CF2A5F /* URLHandler.swift */,
+				4ADA4F5925A20F4F00893A0A /* LaunchServicesMethods.swift */,
 				4A9AB24C25A167AE003842F8 /* Assets.xcassets */,
 				4A9AB24E25A167AE003842F8 /* MainMenu.xib */,
 				4A9AB25125A167AE003842F8 /* Info.plist */,
 				4A9AB25225A167AE003842F8 /* OpenSesame.entitlements */,
+				4A52A37C25A2037A004CAFDB /* TestURLs.md */,
 			);
 			path = OpenSesame;
 			sourceTree = "<group>";
@@ -95,6 +115,7 @@
 				4A9AB24325A167AD003842F8 /* Sources */,
 				4A9AB24425A167AD003842F8 /* Frameworks */,
 				4A9AB24525A167AD003842F8 /* Resources */,
+				4ADA4F7025A227F100893A0A /* Kill Other Instances */,
 			);
 			buildRules = (
 			);
@@ -172,6 +193,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		4ADA4F7025A227F100893A0A /* Kill Other Instances */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Kill Other Instances";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo $(pkill \"Open Sesame\") > /dev/null\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -179,7 +218,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ADA4F6725A2190800893A0A /* Enablable.swift in Sources */,
+				4ADA4F6A25A2198E00893A0A /* StatusItemController.swift in Sources */,
+				4ADA4F6E25A21ABB00893A0A /* LocalizedStrings.swift in Sources */,
 				4A906D6D25A1691900CF2A5F /* URLHandler.swift in Sources */,
+				4ADA4F6425A2188D00893A0A /* UserDefaultsBacked.swift in Sources */,
+				4ADA4F5A25A20F4F00893A0A /* LaunchServicesMethods.swift in Sources */,
+				4ADA4F6025A2187600893A0A /* Settings.swift in Sources */,
 				4A9AB24B25A167AD003842F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
