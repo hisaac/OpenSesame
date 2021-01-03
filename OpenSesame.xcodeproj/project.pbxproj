@@ -12,6 +12,7 @@
 		4A9AB24B25A167AD003842F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9AB24A25A167AD003842F8 /* AppDelegate.swift */; };
 		4A9AB24D25A167AE003842F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9AB24C25A167AE003842F8 /* Assets.xcassets */; };
 		4A9AB25025A167AE003842F8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9AB24E25A167AE003842F8 /* MainMenu.xib */; };
+		4AEA100D25A16B1900D0AF31 /* LSFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4AEA100C25A16B1900D0AF31 /* LSFoundation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AEA100D25A16B1900D0AF31 /* LSFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +52,7 @@
 				4A9AB24925A167AD003842F8 /* OpenSesame */,
 				4A906D6425A168CE00CF2A5F /* LSFoundation */,
 				4A9AB24825A167AD003842F8 /* Products */,
+				4AEA100B25A16B1900D0AF31 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +77,13 @@
 			path = OpenSesame;
 			sourceTree = "<group>";
 		};
+		4AEA100B25A16B1900D0AF31 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -91,6 +101,9 @@
 			dependencies = (
 			);
 			name = "Open Sesame";
+			packageProductDependencies = (
+				4AEA100C25A16B1900D0AF31 /* LSFoundation */,
+			);
 			productName = OpenSesame;
 			productReference = 4A9AB24725A167AD003842F8 /* Open Sesame.app */;
 			productType = "com.apple.product-type.application";
@@ -364,6 +377,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4AEA100C25A16B1900D0AF31 /* LSFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LSFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4A9AB23F25A167AD003842F8 /* Project object */;
 }
