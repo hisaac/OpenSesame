@@ -34,7 +34,9 @@ enum URLHandler {
 			handleSpotifyURL(url: url)
 		}
 
-		else if host.contains("zoom.us") && url.pathComponents.doesNotContain("saml") {
+		else if host.contains("zoom.us"),
+				url.pathComponents.doesNotContain("saml"),
+				url.pathComponents.doesNotContain("oauth") {
 			handleZoomURL(url: url)
 		}
 
