@@ -40,6 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 		if Settings.firstLaunch {
 			openPreferencesWindow()
+			Settings.firstLaunch = false
 		}
 
 		#if DEBUG
