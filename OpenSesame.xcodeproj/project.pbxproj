@@ -7,325 +7,109 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A83C044259C31BA0046068D /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83C043259C31BA0046068D /* URLHandler.swift */; };
-		4A8E9750259D43D100EA159B /* LSFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4A8E974F259D43D100EA159B /* LSFoundation */; };
-		F24C0BD825753BE500356583 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C0BD725753BE500356583 /* AppDelegate.swift */; };
-		F24C0BDB25753BE500356583 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24C0BD925753BE500356583 /* Main.storyboard */; };
-		F24C0BDD25753BE500356583 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C0BDC25753BE500356583 /* ViewController.swift */; };
-		F24C0BDF25753BE600356583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24C0BDE25753BE600356583 /* Assets.xcassets */; };
-		F24C0BEA25753BE600356583 /* OpenSesameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C0BE925753BE600356583 /* OpenSesameTests.swift */; };
-		F24C0BF525753BE600356583 /* OpenSesameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C0BF425753BE600356583 /* OpenSesameUITests.swift */; };
-		F24C0BFC25753BE600356583 /* Open Sesame Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F24C0BFB25753BE600356583 /* Open Sesame Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F24C0C0125753BE600356583 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F24C0C0025753BE600356583 /* Cocoa.framework */; };
-		F24C0C0425753BE600356583 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C0C0325753BE600356583 /* SafariExtensionHandler.swift */; };
-		F24C0C0625753BE600356583 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24C0C0525753BE600356583 /* SafariExtensionViewController.swift */; };
-		F24C0C0925753BE600356583 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = F24C0C0825753BE600356583 /* script.js */; };
-		F24C0C0B25753BE600356583 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F24C0C0A25753BE600356583 /* ToolbarItemIcon.pdf */; };
-		F24C0C0E25753BE600356583 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F24C0C0C25753BE600356583 /* SafariExtensionViewController.xib */; };
-		F2885C25259CC83900592B6B /* LSFoundation in Resources */ = {isa = PBXBuildFile; fileRef = F2885C24259CC83900592B6B /* LSFoundation */; };
+		4A906D6525A168CE00CF2A5F /* LSFoundation in Resources */ = {isa = PBXBuildFile; fileRef = 4A906D6425A168CE00CF2A5F /* LSFoundation */; };
+		4A906D6D25A1691900CF2A5F /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A906D6C25A1691900CF2A5F /* URLHandler.swift */; };
+		4A9AB24B25A167AD003842F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9AB24A25A167AD003842F8 /* AppDelegate.swift */; };
+		4A9AB24D25A167AE003842F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9AB24C25A167AE003842F8 /* Assets.xcassets */; };
+		4A9AB25025A167AE003842F8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9AB24E25A167AE003842F8 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F24C0BE625753BE600356583 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F24C0BCB25753BE400356583 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F24C0BD225753BE400356583;
-			remoteInfo = WebOpener;
-		};
-		F24C0BF125753BE600356583 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F24C0BCB25753BE400356583 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F24C0BD225753BE400356583;
-			remoteInfo = WebOpener;
-		};
-		F24C0BFD25753BE600356583 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F24C0BCB25753BE400356583 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F24C0BFA25753BE600356583;
-			remoteInfo = "WebOpener Extension";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F24C0C1625753BE600356583 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				F24C0BFC25753BE600356583 /* Open Sesame Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		4A17E74D259B6DBD003892EA /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
-		4A17E74E259B6DBD003892EA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4A17E74F259B6DBD003892EA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		4A17E750259B6DBD003892EA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4A83C043259C31BA0046068D /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
-		F24C0BD325753BE400356583 /* Open Sesame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open Sesame.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F24C0BD625753BE500356583 /* OpenSesame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenSesame.entitlements; sourceTree = "<group>"; };
-		F24C0BD725753BE500356583 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F24C0BDA25753BE500356583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F24C0BDC25753BE500356583 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F24C0BDE25753BE600356583 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F24C0BE025753BE600356583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F24C0BE525753BE600356583 /* OpenSesameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenSesameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F24C0BE925753BE600356583 /* OpenSesameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSesameTests.swift; sourceTree = "<group>"; };
-		F24C0BEB25753BE600356583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F24C0BF025753BE600356583 /* OpenSesameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenSesameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F24C0BF425753BE600356583 /* OpenSesameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSesameUITests.swift; sourceTree = "<group>"; };
-		F24C0BF625753BE600356583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F24C0BFB25753BE600356583 /* Open Sesame Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Open Sesame Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F24C0C0025753BE600356583 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		F24C0C0325753BE600356583 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
-		F24C0C0525753BE600356583 /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
-		F24C0C0825753BE600356583 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
-		F24C0C0A25753BE600356583 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
-		F24C0C0D25753BE600356583 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
-		F24C0C0F25753BE600356583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F24C0C1025753BE600356583 /* OpenSesame_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenSesame_Extension.entitlements; sourceTree = "<group>"; };
-		F2885C24259CC83900592B6B /* LSFoundation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LSFoundation; path = ../LSFoundation; sourceTree = "<group>"; };
+		4A906D6425A168CE00CF2A5F /* LSFoundation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LSFoundation; path = ../LSFoundation; sourceTree = "<group>"; };
+		4A906D6725A168E800CF2A5F /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		4A906D6825A168E800CF2A5F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4A906D6925A168E800CF2A5F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4A906D6A25A168E800CF2A5F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4A906D6C25A1691900CF2A5F /* URLHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
+		4A9AB24725A167AD003842F8 /* Open Sesame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open Sesame.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A9AB24A25A167AD003842F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4A9AB24C25A167AE003842F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A9AB24F25A167AE003842F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4A9AB25125A167AE003842F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A9AB25225A167AE003842F8 /* OpenSesame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenSesame.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F24C0BD025753BE400356583 /* Frameworks */ = {
+		4A9AB24425A167AD003842F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A8E9750259D43D100EA159B /* LSFoundation in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F24C0BE225753BE600356583 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F24C0BED25753BE600356583 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F24C0BF825753BE600356583 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F24C0C0125753BE600356583 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F24C0BCA25753BE400356583 = {
+		4A9AB23E25A167AD003842F8 = {
 			isa = PBXGroup;
 			children = (
-				4A17E750259B6DBD003892EA /* README.md */,
-				4A17E74D259B6DBD003892EA /* CHANGELOG.md */,
-				4A17E74F259B6DBD003892EA /* .swiftlint.yml */,
-				4A17E74E259B6DBD003892EA /* .gitignore */,
-				F24C0BD525753BE500356583 /* OpenSesame */,
-				F24C0BE825753BE600356583 /* OpenSesameTests */,
-				F24C0BF325753BE600356583 /* OpenSesameUITests */,
-				F24C0C0225753BE600356583 /* OpenSesame Extension */,
-				F2885C24259CC83900592B6B /* LSFoundation */,
-				F24C0BFF25753BE600356583 /* Frameworks */,
-				F24C0BD425753BE400356583 /* Products */,
+				4A906D6825A168E800CF2A5F /* README.md */,
+				4A906D6725A168E800CF2A5F /* CHANGELOG.md */,
+				4A906D6925A168E800CF2A5F /* .swiftlint.yml */,
+				4A906D6A25A168E800CF2A5F /* .gitignore */,
+				4A9AB24925A167AD003842F8 /* OpenSesame */,
+				4A906D6425A168CE00CF2A5F /* LSFoundation */,
+				4A9AB24825A167AD003842F8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F24C0BD425753BE400356583 /* Products */ = {
+		4A9AB24825A167AD003842F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F24C0BD325753BE400356583 /* Open Sesame.app */,
-				F24C0BE525753BE600356583 /* OpenSesameTests.xctest */,
-				F24C0BF025753BE600356583 /* OpenSesameUITests.xctest */,
-				F24C0BFB25753BE600356583 /* Open Sesame Extension.appex */,
+				4A9AB24725A167AD003842F8 /* Open Sesame.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F24C0BD525753BE500356583 /* OpenSesame */ = {
+		4A9AB24925A167AD003842F8 /* OpenSesame */ = {
 			isa = PBXGroup;
 			children = (
-				F24C0BD725753BE500356583 /* AppDelegate.swift */,
-				4A83C043259C31BA0046068D /* URLHandler.swift */,
-				F24C0BD925753BE500356583 /* Main.storyboard */,
-				F24C0BDC25753BE500356583 /* ViewController.swift */,
-				F24C0BDE25753BE600356583 /* Assets.xcassets */,
-				F24C0BE025753BE600356583 /* Info.plist */,
-				F24C0BD625753BE500356583 /* OpenSesame.entitlements */,
+				4A9AB24A25A167AD003842F8 /* AppDelegate.swift */,
+				4A906D6C25A1691900CF2A5F /* URLHandler.swift */,
+				4A9AB24C25A167AE003842F8 /* Assets.xcassets */,
+				4A9AB24E25A167AE003842F8 /* MainMenu.xib */,
+				4A9AB25125A167AE003842F8 /* Info.plist */,
+				4A9AB25225A167AE003842F8 /* OpenSesame.entitlements */,
 			);
 			path = OpenSesame;
-			sourceTree = "<group>";
-		};
-		F24C0BE825753BE600356583 /* OpenSesameTests */ = {
-			isa = PBXGroup;
-			children = (
-				F24C0BE925753BE600356583 /* OpenSesameTests.swift */,
-				F24C0BEB25753BE600356583 /* Info.plist */,
-			);
-			path = OpenSesameTests;
-			sourceTree = "<group>";
-		};
-		F24C0BF325753BE600356583 /* OpenSesameUITests */ = {
-			isa = PBXGroup;
-			children = (
-				F24C0BF425753BE600356583 /* OpenSesameUITests.swift */,
-				F24C0BF625753BE600356583 /* Info.plist */,
-			);
-			path = OpenSesameUITests;
-			sourceTree = "<group>";
-		};
-		F24C0BFF25753BE600356583 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F24C0C0025753BE600356583 /* Cocoa.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F24C0C0225753BE600356583 /* OpenSesame Extension */ = {
-			isa = PBXGroup;
-			children = (
-				F24C0C0325753BE600356583 /* SafariExtensionHandler.swift */,
-				F24C0C0525753BE600356583 /* SafariExtensionViewController.swift */,
-				F24C0C0C25753BE600356583 /* SafariExtensionViewController.xib */,
-				F24C0C0F25753BE600356583 /* Info.plist */,
-				F24C0C1025753BE600356583 /* OpenSesame_Extension.entitlements */,
-				F24C0C0725753BE600356583 /* Resources */,
-			);
-			path = "OpenSesame Extension";
-			sourceTree = "<group>";
-		};
-		F24C0C0725753BE600356583 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F24C0C0825753BE600356583 /* script.js */,
-				F24C0C0A25753BE600356583 /* ToolbarItemIcon.pdf */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F24C0BD225753BE400356583 /* Open Sesame */ = {
+		4A9AB24625A167AD003842F8 /* Open Sesame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F24C0C1725753BE600356583 /* Build configuration list for PBXNativeTarget "Open Sesame" */;
+			buildConfigurationList = 4A9AB25525A167AE003842F8 /* Build configuration list for PBXNativeTarget "Open Sesame" */;
 			buildPhases = (
-				4AB58443259B6C3000553698 /* Run SwiftLint */,
-				F24C0BCF25753BE400356583 /* Sources */,
-				F24C0BD025753BE400356583 /* Frameworks */,
-				F24C0BD125753BE400356583 /* Resources */,
-				F24C0C1625753BE600356583 /* Embed App Extensions */,
+				4A906D6B25A168F300CF2A5F /* Run SwiftLint */,
+				4A9AB24325A167AD003842F8 /* Sources */,
+				4A9AB24425A167AD003842F8 /* Frameworks */,
+				4A9AB24525A167AD003842F8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F24C0BFE25753BE600356583 /* PBXTargetDependency */,
 			);
 			name = "Open Sesame";
-			packageProductDependencies = (
-				4A8E974F259D43D100EA159B /* LSFoundation */,
-			);
-			productName = WebOpener;
-			productReference = F24C0BD325753BE400356583 /* Open Sesame.app */;
+			productName = OpenSesame;
+			productReference = 4A9AB24725A167AD003842F8 /* Open Sesame.app */;
 			productType = "com.apple.product-type.application";
-		};
-		F24C0BE425753BE600356583 /* OpenSesameTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F24C0C1A25753BE600356583 /* Build configuration list for PBXNativeTarget "OpenSesameTests" */;
-			buildPhases = (
-				4AB58444259B6C4100553698 /* Run SwiftLint */,
-				F24C0BE125753BE600356583 /* Sources */,
-				F24C0BE225753BE600356583 /* Frameworks */,
-				F24C0BE325753BE600356583 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F24C0BE725753BE600356583 /* PBXTargetDependency */,
-			);
-			name = OpenSesameTests;
-			productName = WebOpenerTests;
-			productReference = F24C0BE525753BE600356583 /* OpenSesameTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		F24C0BEF25753BE600356583 /* OpenSesameUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F24C0C1D25753BE600356583 /* Build configuration list for PBXNativeTarget "OpenSesameUITests" */;
-			buildPhases = (
-				4AB58445259B6C4B00553698 /* Run SwiftLint */,
-				F24C0BEC25753BE600356583 /* Sources */,
-				F24C0BED25753BE600356583 /* Frameworks */,
-				F24C0BEE25753BE600356583 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F24C0BF225753BE600356583 /* PBXTargetDependency */,
-			);
-			name = OpenSesameUITests;
-			productName = WebOpenerUITests;
-			productReference = F24C0BF025753BE600356583 /* OpenSesameUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		F24C0BFA25753BE600356583 /* Open Sesame Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F24C0C1325753BE600356583 /* Build configuration list for PBXNativeTarget "Open Sesame Extension" */;
-			buildPhases = (
-				4AB58446259B6C5500553698 /* Run SwiftLint */,
-				F24C0BF725753BE600356583 /* Sources */,
-				F24C0BF825753BE600356583 /* Frameworks */,
-				F24C0BF925753BE600356583 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Open Sesame Extension";
-			productName = "WebOpener Extension";
-			productReference = F24C0BFB25753BE600356583 /* Open Sesame Extension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F24C0BCB25753BE400356583 /* Project object */ = {
+		4A9AB23F25A167AD003842F8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
-					F24C0BD225753BE400356583 = {
-						CreatedOnToolsVersion = 12.2;
-					};
-					F24C0BE425753BE600356583 = {
-						CreatedOnToolsVersion = 12.2;
-						TestTargetID = F24C0BD225753BE400356583;
-					};
-					F24C0BEF25753BE600356583 = {
-						CreatedOnToolsVersion = 12.2;
-						TestTargetID = F24C0BD225753BE400356583;
-					};
-					F24C0BFA25753BE600356583 = {
-						CreatedOnToolsVersion = 12.2;
+					4A9AB24625A167AD003842F8 = {
+						CreatedOnToolsVersion = 12.3;
 					};
 				};
 			};
-			buildConfigurationList = F24C0BCE25753BE400356583 /* Build configuration list for PBXProject "OpenSesame" */;
+			buildConfigurationList = 4A9AB24225A167AD003842F8 /* Build configuration list for PBXProject "OpenSesame" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -333,114 +117,31 @@
 				en,
 				Base,
 			);
-			mainGroup = F24C0BCA25753BE400356583;
-			packageReferences = (
-			);
-			productRefGroup = F24C0BD425753BE400356583 /* Products */;
+			mainGroup = 4A9AB23E25A167AD003842F8;
+			productRefGroup = 4A9AB24825A167AD003842F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F24C0BD225753BE400356583 /* Open Sesame */,
-				F24C0BE425753BE600356583 /* OpenSesameTests */,
-				F24C0BEF25753BE600356583 /* OpenSesameUITests */,
-				F24C0BFA25753BE600356583 /* Open Sesame Extension */,
+				4A9AB24625A167AD003842F8 /* Open Sesame */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F24C0BD125753BE400356583 /* Resources */ = {
+		4A9AB24525A167AD003842F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2885C25259CC83900592B6B /* LSFoundation in Resources */,
-				F24C0BDF25753BE600356583 /* Assets.xcassets in Resources */,
-				F24C0BDB25753BE500356583 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F24C0BE325753BE600356583 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F24C0BEE25753BE600356583 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F24C0BF925753BE600356583 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F24C0C0E25753BE600356583 /* SafariExtensionViewController.xib in Resources */,
-				F24C0C0B25753BE600356583 /* ToolbarItemIcon.pdf in Resources */,
-				F24C0C0925753BE600356583 /* script.js in Resources */,
+				4A906D6525A168CE00CF2A5F /* LSFoundation in Resources */,
+				4A9AB24D25A167AE003842F8 /* Assets.xcassets in Resources */,
+				4A9AB25025A167AE003842F8 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4AB58443259B6C3000553698 /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		4AB58444259B6C4100553698 /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		4AB58445259B6C4B00553698 /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		4AB58446259B6C5500553698 /* Run SwiftLint */ = {
+		4A906D6B25A168F300CF2A5F /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -461,82 +162,30 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F24C0BCF25753BE400356583 /* Sources */ = {
+		4A9AB24325A167AD003842F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F24C0BDD25753BE500356583 /* ViewController.swift in Sources */,
-				F24C0BD825753BE500356583 /* AppDelegate.swift in Sources */,
-				4A83C044259C31BA0046068D /* URLHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F24C0BE125753BE600356583 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F24C0BEA25753BE600356583 /* OpenSesameTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F24C0BEC25753BE600356583 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F24C0BF525753BE600356583 /* OpenSesameUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F24C0BF725753BE600356583 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F24C0C0625753BE600356583 /* SafariExtensionViewController.swift in Sources */,
-				F24C0C0425753BE600356583 /* SafariExtensionHandler.swift in Sources */,
+				4A906D6D25A1691900CF2A5F /* URLHandler.swift in Sources */,
+				4A9AB24B25A167AD003842F8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		F24C0BE725753BE600356583 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F24C0BD225753BE400356583 /* Open Sesame */;
-			targetProxy = F24C0BE625753BE600356583 /* PBXContainerItemProxy */;
-		};
-		F24C0BF225753BE600356583 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F24C0BD225753BE400356583 /* Open Sesame */;
-			targetProxy = F24C0BF125753BE600356583 /* PBXContainerItemProxy */;
-		};
-		F24C0BFE25753BE600356583 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F24C0BFA25753BE600356583 /* Open Sesame Extension */;
-			targetProxy = F24C0BFD25753BE600356583 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		F24C0BD925753BE500356583 /* Main.storyboard */ = {
+		4A9AB24E25A167AE003842F8 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F24C0BDA25753BE500356583 /* Base */,
+				4A9AB24F25A167AE003842F8 /* Base */,
 			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F24C0C0C25753BE600356583 /* SafariExtensionViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F24C0C0D25753BE600356583 /* Base */,
-			);
-			name = SafariExtensionViewController.xib;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		F24C0C1125753BE600356583 /* Debug */ = {
+		4A9AB25325A167AE003842F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -587,7 +236,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -597,7 +246,7 @@
 			};
 			name = Debug;
 		};
-		F24C0C1225753BE600356583 /* Release */ = {
+		4A9AB25425A167AE003842F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -642,7 +291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -651,56 +300,12 @@
 			};
 			name = Release;
 		};
-		F24C0C1425753BE600356583 /* Debug */ = {
+		4A9AB25625A167AE003842F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "OpenSesame Extension/OpenSesame_Extension.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = "OpenSesame Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.OpenSesame.Extension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		F24C0C1525753BE600356583 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "OpenSesame Extension/OpenSesame_Extension.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = "OpenSesame Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.OpenSesame.Extension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		F24C0C1825753BE600356583 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OpenSesame/OpenSesame.entitlements;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
@@ -710,21 +315,18 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = software.level.OpenSesame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		F24C0C1925753BE600356583 /* Release */ = {
+		4A9AB25725A167AE003842F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OpenSesame/OpenSesame.entitlements;
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
@@ -734,153 +336,34 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = software.level.OpenSesame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		F24C0C1B25753BE600356583 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				INFOPLIST_FILE = OpenSesameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.OpenSesameTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenSesame.app/Contents/MacOS/OpenSesame";
-			};
-			name = Debug;
-		};
-		F24C0C1C25753BE600356583 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				INFOPLIST_FILE = OpenSesameTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.OpenSesameTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OpenSesame.app/Contents/MacOS/OpenSesame";
-			};
-			name = Release;
-		};
-		F24C0C1E25753BE600356583 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				INFOPLIST_FILE = OpenSesameUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.OpenSesameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = OpenSesame;
-			};
-			name = Debug;
-		};
-		F24C0C1F25753BE600356583 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				INFOPLIST_FILE = OpenSesameUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.OpenSesameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = OpenSesame;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F24C0BCE25753BE400356583 /* Build configuration list for PBXProject "OpenSesame" */ = {
+		4A9AB24225A167AD003842F8 /* Build configuration list for PBXProject "OpenSesame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F24C0C1125753BE600356583 /* Debug */,
-				F24C0C1225753BE600356583 /* Release */,
+				4A9AB25325A167AE003842F8 /* Debug */,
+				4A9AB25425A167AE003842F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F24C0C1325753BE600356583 /* Build configuration list for PBXNativeTarget "Open Sesame Extension" */ = {
+		4A9AB25525A167AE003842F8 /* Build configuration list for PBXNativeTarget "Open Sesame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F24C0C1425753BE600356583 /* Debug */,
-				F24C0C1525753BE600356583 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F24C0C1725753BE600356583 /* Build configuration list for PBXNativeTarget "Open Sesame" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F24C0C1825753BE600356583 /* Debug */,
-				F24C0C1925753BE600356583 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F24C0C1A25753BE600356583 /* Build configuration list for PBXNativeTarget "OpenSesameTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F24C0C1B25753BE600356583 /* Debug */,
-				F24C0C1C25753BE600356583 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F24C0C1D25753BE600356583 /* Build configuration list for PBXNativeTarget "OpenSesameUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F24C0C1E25753BE600356583 /* Debug */,
-				F24C0C1F25753BE600356583 /* Release */,
+				4A9AB25625A167AE003842F8 /* Debug */,
+				4A9AB25725A167AE003842F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4A8E974F259D43D100EA159B /* LSFoundation */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = LSFoundation;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = F24C0BCB25753BE400356583 /* Project object */;
+	rootObject = 4A9AB23F25A167AD003842F8 /* Project object */;
 }
