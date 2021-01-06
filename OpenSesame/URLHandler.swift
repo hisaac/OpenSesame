@@ -26,7 +26,6 @@ enum KnownBundleIdentifier: String {
 
 class URLHandler {
 
-	private var lastURLHandled: URL?
 	private let workspace = NSWorkspace.shared
 
 	private let knownShortLinkHosts = [
@@ -55,13 +54,10 @@ class URLHandler {
 
 	func handle(_ url: URL) {
 		guard Settings.urlHandlingEnabled,
-			  url != lastURLHandled,
 			  let host = url.host else {
 			openWithDefaultFallbackBrowser(url)
 			return
 		}
-
-		lastURLHandled = url
 
 		// swiftlint:disable statement_position
 		if host.endsWithAny(of: knownShortLinkHosts),
@@ -187,7 +183,19 @@ class URLHandler {
 		)
 	}
 
+
+	/// If Twitter tries to open the URL of a tweet that doesn't exist (if it were deleted for instance), it sends the URL instead to the default browser
+	/// which in thise case is our app. This causes an undending loop. So here we track if the current Twitter URL is the same one that was just tried to open,
+	/// and send it to the default browser if so.
+	private var lastURLHandledByTwitter: URL?
+
 	private func handleTwitterURL(_ url: URL) {
+		guard url != lastURLHandledByTwitter else {
+			openWithDefaultFallbackBrowser(url)
+			return
+		}
+
+		lastURLHandledByTwitter = url
 		open(
 			url: url,
 			usingApplicationWithBundleIdentifier: KnownBundleIdentifier.twitter.rawValue
