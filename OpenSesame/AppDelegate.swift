@@ -44,12 +44,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 
 		#if DEBUG
+		openPreferencesWindow()
 		Settings.debugEnabled = true
 		#endif
-
-		// Temporary hack for now to make app less annoying
-		// TODO: Find a better solution
-//		NSApp.hide(self)
 	}
 
 	func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
