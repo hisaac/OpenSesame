@@ -93,7 +93,6 @@
 				4ADA4F6925A2198E00893A0A /* StatusItemController.swift */,
 				4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */,
 				4ADA4F6625A2190800893A0A /* Enablable.swift */,
-				4ADA4F6325A2188D00893A0A /* UserDefaultsBacked.swift */,
 				4A906D6C25A1691900CF2A5F /* URLHandler.swift */,
 				4ADA4F5925A20F4F00893A0A /* LaunchServicesMethods.swift */,
 				4A9AB24C25A167AE003842F8 /* Assets.xcassets */,
@@ -109,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				4ADA4F5F25A2187600893A0A /* Settings.swift */,
+				4ADA4F6325A2188D00893A0A /* UserDefaultsBacked.swift */,
 				4AE4C9C325A24AA200FDFE28 /* PreferencesWindowDelegate.swift */,
 				4A1DFA8A25A24DF700E5739E /* GeneralPreferenceViewController.swift */,
 				4A1DFA8B25A24DF700E5739E /* GeneralPreferenceViewController.xib */,
