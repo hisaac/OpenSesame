@@ -8,6 +8,10 @@
 import AppKit
 import Preferences
 
+extension Preferences.PaneIdentifier {
+	static let general = Self("general")
+}
+
 class GeneralPreferenceViewController: NSViewController, PreferencePane {
 	var preferencePaneIdentifier = Preferences.PaneIdentifier.general
 	var preferencePaneTitle = "General"
@@ -17,8 +21,6 @@ class GeneralPreferenceViewController: NSViewController, PreferencePane {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		preferredContentSize = NSSize(width: 768, height: 512)
 	}
 
 	// TODO: To be used when implementing default browser choice

@@ -8,9 +8,9 @@
 import AppKit
 import os.log
 
-typealias StatusItemControllerDelegate = Enablable & PreferencesWindowDelegate
-
 class StatusItemController {
+
+	typealias StatusItemControllerDelegate = Enablable & PreferencesWindowDelegate
 
 	weak var delegate: StatusItemControllerDelegate?
 	private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
