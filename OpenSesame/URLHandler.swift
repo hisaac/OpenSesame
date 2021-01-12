@@ -12,16 +12,17 @@ enum KnownBundleIdentifier: String {
 	case appStore = "com.apple.AppStore"
 	case music = "com.apple.Music"
 	case news = "com.apple.news"
+	case slack = "com.tinyspeck.slackmacgap"
+	case spotify = "com.spotify.client"
 	case tweetbot = "com.tapbots.Tweetbot3Mac"
 	case twitter = "maccatalyst.com.atebits.Tweetie2"
-	case spotify = "com.spotify.client"
 	case zoom = "us.zoom.xos"
 
 	// Browsers
-	case safari = "com.apple.Safari"
-	case firefox = "org.mozilla.firefox"
 	case chrome = "com.google.Chrome"
+	case firefox = "org.mozilla.firefox"
 	case opera = "com.operasoftware.Opera"
+	case safari = "com.apple.Safari"
 }
 
 class URLHandler {
@@ -52,6 +53,7 @@ class URLHandler {
 		}
 	}
 
+	// swiftlint:disable:next cyclomatic_complexity
 	func handle(_ url: URL) {
 		guard Settings.urlHandlingEnabled,
 			  let host = url.host else {
@@ -99,11 +101,18 @@ class URLHandler {
 			openWithDefaultFallbackBrowser(url)
 		}
 
+		else if host.hasSuffix("slack.com") {
+			handleSlackURL(url)
+		}
+
 		else {
 			openWithDefaultFallbackBrowser(url)
 		}
 		// swiftlint:enable statement_position
 	}
+
+	// MARK: - App handler methods
+	// TODO: Break out these methods into their own classes, maybe adding a `URLHandler` protocol for them to conform to
 
 	// swiftlint:disable line_length
 	private func openWithDefaultFallbackBrowser(_ url: URL) {
@@ -183,7 +192,6 @@ class URLHandler {
 		)
 	}
 
-
 	/// If Twitter tries to open the URL of a tweet that doesn't exist (if it were deleted for instance), it sends the URL instead to the default browser
 	/// which in thise case is our app. This causes an undending loop. So here we track if the current Twitter URL is the same one that was just tried to open,
 	/// and send it to the default browser if so.
@@ -196,10 +204,7 @@ class URLHandler {
 		}
 
 		lastURLHandledByTwitter = url
-		open(
-			url: url,
-			usingApplicationWithBundleIdentifier: KnownBundleIdentifier.twitter.rawValue
-		)
+		open(url: url, usingApplicationWithBundleIdentifier: KnownBundleIdentifier.twitter.rawValue)
 	}
 
 	/// This currently works for opening individual posts, but nothing else yet
@@ -226,6 +231,23 @@ class URLHandler {
 			usingApplicationWithBundleIdentifier: KnownBundleIdentifier.tweetbot.rawValue
 		)
 	}
+
+	// TODO: Determine if this is needed or not
+	private var lastURLHandledBySlack: URL?
+
+	private func handleSlackURL(_ url: URL) {
+		guard url != lastURLHandledBySlack else {
+			openWithDefaultFallbackBrowser(url)
+			return
+		}
+
+		lastURLHandledBySlack = url
+
+		// TODO: Figure out modification of URL necessary (slack://) https://api.slack.com/reference/deep-linking
+		openWithDefaultFallbackBrowser(url)
+	}
+
+	// MARK: - Open methods
 
 	private func open(urlComponents: URLComponents?,
 					  from originalURL: URL,
