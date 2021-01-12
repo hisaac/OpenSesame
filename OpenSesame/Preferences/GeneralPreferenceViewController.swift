@@ -24,6 +24,6 @@ class GeneralPreferenceViewController: NSViewController, PreferencePane {
 	}
 
 	// TODO: To be used when implementing default browser choice
-	//			let handlers = urlHandler.getHTMLHandlers()
+	//			let handlers = OSLaunchServices.getHTMLHandlers()
 	//			print(handlers)
 }

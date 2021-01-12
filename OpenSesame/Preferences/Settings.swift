@@ -26,7 +26,9 @@ struct Settings {
 
 	/// The default browser to fallback to when handling a URL
 	/// Defaults to Safari, as that's the only browser we can more or less guarantee will be installed on the system
-	@UserDefaultsBacked(key: "defaultFallbackBrowserBundleIdentifier", defaultValue: KnownBundleIdentifier.safari.rawValue)
+	@UserDefaultsBacked(
+		key: "defaultFallbackBrowserBundleIdentifier",
+		defaultValue: URLOpener.KnownBundleIdentifier.safari.rawValue)
 	static var defaultFallbackBrowserBundleIdentifier: String
 
 	// MARK: - App Handler Settings
@@ -34,18 +36,24 @@ struct Settings {
 	@UserDefaultsBacked(key: "handleShortLinkURLs", defaultValue: true)
 	static var handleShortLinkURLs: Bool
 
+	@UserDefaultsBacked(key: "handleAppleMusicURLs", defaultValue: true)
+	static var handleAppleMusicURLs: Bool
+
+	@UserDefaultsBacked(key: "handleAppleNewsURLs", defaultValue: false)
+	static var handleAppleNewsURLs: Bool
+
 	@UserDefaultsBacked(key: "handleAppStoreURLs", defaultValue: true)
 	static var handleAppStoreURLs: Bool
 
-	@UserDefaultsBacked(key: "handleAppleMusicURLs", defaultValue: true)
-	static var handleAppleMusicURLs: Bool
+	@UserDefaultsBacked(key: "handleSlackURLs", defaultValue: true)
+	static var handleSlackURLs: Bool
 
 	@UserDefaultsBacked(key: "handleSpotifyURLs", defaultValue: true)
 	static var handleSpotifyURLs: Bool
 
-	@UserDefaultsBacked(key: "handleZoomURLs", defaultValue: true)
-	static var handleZoomURLs: Bool
-
 	@UserDefaultsBacked(key: "handleTwitterURLs", defaultValue: true)
 	static var handleTwitterURLs: Bool
+
+	@UserDefaultsBacked(key: "handleZoomURLs", defaultValue: true)
+	static var handleZoomURLs: Bool
 }

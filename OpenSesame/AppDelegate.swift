@@ -14,7 +14,7 @@ import Preferences
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 	@IBOutlet var window: NSWindow!
-	let urlHandler = URLHandler()
+	let urlOpener = URLOpener()
 	var statusItemController: StatusItemController?
 
 	// TODO: Create custom logger class that uses `Logger` or `OSLog` depending on the operating system
@@ -54,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 
 	func application(_ application: NSApplication, open urls: [URL]) {
-		urlHandler.handle(urls)
+		urlOpener.open(urls)
 	}
 
 }
