@@ -16,10 +16,10 @@ final class ZoomHandler: URLHandler {
 			return false
 		}
 
-		let isZoomURL = host.hasSuffix("zoom.us") &&
+		let isZoomMeetingURL = host.hasSuffix("zoom.us") &&
 			url.pathComponents.containsNone(of: "saml", "oauth")
 
-		return isZoomURL
+		return isZoomMeetingURL
 	}
 
 	func handle(_ url: URL) {
