@@ -166,10 +166,11 @@ final class URLOpener: URLHandlerDelegate {
 				completionHandler: { runningApplication, error in
 					if let error = error {
 						NSApp.presentError(error)
+					} else {
+						NSApp.deactivate()
 					}
 				}
 			)
-			NSApp.hide(self)
 		}
 	}
 }
