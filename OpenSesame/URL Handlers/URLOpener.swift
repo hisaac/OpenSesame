@@ -163,8 +163,13 @@ final class URLOpener: URLHandlerDelegate {
 				[url],
 				withApplicationAt: applicationURL,
 				configuration: openConfiguration,
-				completionHandler: nil
+				completionHandler: { runningApplication, error in
+					if let error = error {
+						NSApp.presentError(error)
+					}
+				}
 			)
+			NSApp.hide(self)
 		}
 	}
 }
