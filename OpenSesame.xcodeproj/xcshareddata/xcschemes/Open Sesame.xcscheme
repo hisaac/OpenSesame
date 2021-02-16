@@ -5,24 +5,6 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "mkdir -p &quot;${SRCROOT}/build/development&quot;&#10;cp -fR &quot;${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME}.app&quot; &quot;${SRCROOT}/build/development&quot;&#10;">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "4A9AB24625A167AD003842F8"
-                     BuildableName = "Open Sesame.app"
-                     BlueprintName = "Open Sesame"
-                     ReferencedContainer = "container:OpenSesame.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
