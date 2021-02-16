@@ -34,7 +34,7 @@ final class ShortlinkHandler: URLHandler {
 			return false
 		}
 
-		return host.endsWithAny(of: knownShortLinkHosts)
+		return knownShortLinkHosts.contains(host)
 	}
 
 	func handle(_ url: URL) {
