@@ -17,7 +17,7 @@ final class ZoomHandler: URLHandler {
 		}
 
 		let isZoomMeetingURL = host.hasSuffix("zoom.us") &&
-			url.pathComponents.containsNone(of: "saml", "oauth")
+			url.pathComponents.containsNone(of: "saml", "oauth", "share")
 
 		return isZoomMeetingURL
 	}
