@@ -23,8 +23,6 @@
 			<string>Default</string>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSDocumentClass</key>
-			<string>NSDocument</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
@@ -45,8 +43,6 @@
 			<string>Default</string>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSDocumentClass</key>
-			<string>NSDocument</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
