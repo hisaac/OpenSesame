@@ -10,6 +10,7 @@ import Foundation
 final class ShortlinkHandler: URLHandler {
 	weak var delegate: URLHandlerDelegate?
 
+	// TODO: Give users the ability to customize shortlink hosts
 	let knownShortLinkHosts = [
 		"adf.ly",
 		"bit.do",

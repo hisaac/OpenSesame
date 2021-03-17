@@ -7,7 +7,7 @@
 
 import AppKit
 
-protocol URLHandlerDelegate: class {
+protocol URLHandlerDelegate: AnyObject {
 	var workspace: NSWorkspace { get }
 
 	func open(urlComponents: URLComponents?, from originalURL: URL, usingApplicationWithBundleIdentifier bundleIdentifier: String)
