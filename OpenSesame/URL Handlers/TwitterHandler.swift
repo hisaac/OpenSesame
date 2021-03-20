@@ -26,7 +26,7 @@ final class TwitterHandler: URLHandler {
 	}
 
 	/// If Twitter tries to open the URL of a tweet that doesn't exist (if it were deleted for instance), it sends the URL instead to the default browser
-	/// which in thise case is our app. This causes an undending loop. So here we track if the current Twitter URL is the same one that was just tried to open,
+	/// which in this case is our app. This causes an unending loop. So here we track if the current Twitter URL is the same one that was just tried to open,
 	/// and send it to the default browser if so.
 	private var lastURLHandledByTwitterApp: URL?
 
