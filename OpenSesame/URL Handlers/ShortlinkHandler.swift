@@ -39,6 +39,8 @@ final class ShortlinkHandler: URLHandler {
 	}
 
 	func handle(_ url: URL) {
+		// TODO: Add a transparent spinner window to show that the shortlink URL is being expanded
+		// It can sometimes take a couple seconds, and I don't want people to think nothing is happening
 		url.resolveWithCompletionHandler { [weak self] in
 			self?.delegate?.open($0)
 		}
