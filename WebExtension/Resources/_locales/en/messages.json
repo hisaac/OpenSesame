@@ -1,0 +1,10 @@
+{
+	"extension_name": {
+		"message": "Open Sesame",
+		"description": "The display name for the extension."
+	},
+	"extension_description": {
+		"message": "This is the Open Sesame web extension. It allows you to send any clicked links to Open Sesame for handling.",
+		"description": "Description of what the extension does."
+	}
+}
