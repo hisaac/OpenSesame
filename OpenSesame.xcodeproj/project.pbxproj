@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A1DFA8C25A24DF700E5739E /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DFA8A25A24DF700E5739E /* GeneralPreferenceViewController.swift */; };
 		4A1DFA8D25A24DF700E5739E /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1DFA8B25A24DF700E5739E /* GeneralPreferenceViewController.xib */; };
+		4A3F130C26101BDD0057B7A5 /* DiscordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F130B26101BDD0057B7A5 /* DiscordHandler.swift */; };
 		4A906D6525A168CE00CF2A5F /* LSFoundation in Resources */ = {isa = PBXBuildFile; fileRef = 4A906D6425A168CE00CF2A5F /* LSFoundation */; };
 		4A906D6D25A1691900CF2A5F /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A906D6C25A1691900CF2A5F /* URLOpener.swift */; };
 		4A9AB24B25A167AD003842F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9AB24A25A167AD003842F8 /* AppDelegate.swift */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		4A1DFA8A25A24DF700E5739E /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
 		4A1DFA8B25A24DF700E5739E /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
+		4A3F130B26101BDD0057B7A5 /* DiscordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordHandler.swift; sourceTree = "<group>"; };
 		4A52A37C25A2037A004CAFDB /* TestURLs.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TestURLs.md; sourceTree = "<group>"; };
 		4A906D6425A168CE00CF2A5F /* LSFoundation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LSFoundation; path = ../LSFoundation; sourceTree = "<group>"; };
 		4A906D6725A168E800CF2A5F /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				F2A158A625AE0395000745EB /* AppleNewsHandler.swift */,
 				F2A1589C25ADFCD9000745EB /* AppStoreHandler.swift */,
 				F2A158A925AE06BA000745EB /* SlackHandler.swift */,
+				4A3F130B26101BDD0057B7A5 /* DiscordHandler.swift */,
 				F2A1589F25AE008F000745EB /* SpotifyHandler.swift */,
 				F2A158A325AE027F000745EB /* ZoomHandler.swift */,
 				F2A158AC25AE079F000745EB /* TwitterHandler.swift */,
@@ -405,6 +408,7 @@
 				4ADA4F6425A2188D00893A0A /* UserDefaultsBacked.swift in Sources */,
 				F2A158A025AE008F000745EB /* SpotifyHandler.swift in Sources */,
 				4ADA4F5A25A20F4F00893A0A /* OSLaunchServices.swift in Sources */,
+				4A3F130C26101BDD0057B7A5 /* DiscordHandler.swift in Sources */,
 				F2A158A425AE027F000745EB /* ZoomHandler.swift in Sources */,
 				4ADA4F6025A2187600893A0A /* Settings.swift in Sources */,
 				F2A1588F25ADF35E000745EB /* URLHandler.swift in Sources */,

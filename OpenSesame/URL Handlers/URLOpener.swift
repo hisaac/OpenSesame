@@ -37,6 +37,7 @@ final class URLOpener: URLHandlerDelegate {
 	private let appleMusicHandler: URLHandler?
 	private let appleNewsHandler: URLHandler?
 	private let appStoreHandler: URLHandler?
+	private let discordHandler: URLHandler?
 	private let slackHandler: URLHandler?
 	private let spotifyHandler: URLHandler?
 	private let twitterHandler: URLHandler?
@@ -49,6 +50,7 @@ final class URLOpener: URLHandlerDelegate {
 		appleMusicHandler = AppleMusicHandler()
 		appleNewsHandler = AppleNewsHandler()
 		appStoreHandler = AppStoreHandler()
+		discordHandler = DiscordHandler()
 		slackHandler = SlackHandler()
 		spotifyHandler = SpotifyHandler()
 		twitterHandler = TwitterHandler()
@@ -62,6 +64,7 @@ final class URLOpener: URLHandlerDelegate {
 		appleMusicHandler?.delegate = self
 		appleNewsHandler?.delegate = self
 		appStoreHandler?.delegate = self
+		discordHandler?.delegate = self
 		slackHandler?.delegate = self
 		spotifyHandler?.delegate = self
 		twitterHandler?.delegate = self
@@ -108,6 +111,12 @@ final class URLOpener: URLHandlerDelegate {
 			appleMusicHandler?.handle(url)
 		}
 
+		// TODO: Implement
+		else if discordHandler?.canHandle(url) == true {
+			discordHandler?.handle(url)
+		}
+
+		// TODO: Implement
 		else if slackHandler?.canHandle(url) == true {
 			slackHandler?.handle(url)
 		}

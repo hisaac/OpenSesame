@@ -45,6 +45,9 @@ struct Settings {
 	@UserDefaultsBacked(key: "handleAppStoreURLs", defaultValue: true)
 	static var handleAppStoreURLs: Bool
 
+	@UserDefaultsBacked(key: "handleDiscordURLs", defaultValue: true)
+	static var handleDiscordURLs: Bool
+
 	@UserDefaultsBacked(key: "handleSlackURLs", defaultValue: true)
 	static var handleSlackURLs: Bool
 

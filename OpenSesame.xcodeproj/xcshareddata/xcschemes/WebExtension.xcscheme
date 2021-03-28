@@ -57,6 +57,7 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.SafariTechnologyPreview"
          FilePath = "/Applications/Safari Technology Preview.app">
       </PathRunnable>
       <MacroExpansion>
