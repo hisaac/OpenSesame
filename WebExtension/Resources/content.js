@@ -6,15 +6,24 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 	console.log("Received request: ", request);
 });
 
-// browser.webRequest.onBeforeRequest.addListener(function(p1: browser.webRequest._OnBeforeRequestDetails){ console.log(p1); }, undefined, undefined)
+window.addEventListener("click", (event) => {
+	handleWindowClick(event);
+}, false);
 
-browser.webRequest.onBeforeRequest.addListener((event) => {
-	console.log(event);
-// 	if (event.target.tagName === "A") {
-// //		event.preventDefault();
-// 		var href = event.target.getAttribute("href");
-// 		console.log(href);
-//
-// 		safari.extension.dispatchMessage("clickedLinkEvent", {"url": href});
-// 	}
-}, null, null);
+function handleWindowClick(event) {
+	const linkElement = findLinkElement(event.target);
+	if (linkElement) {
+		event.preventDefault();
+		console.log(linkElement.href);
+	}
+}
+
+function findLinkElement(element) {
+	if (element.tagName === "A") {
+		return element;
+	} else if (element.parentNode) {
+		return this.findLinkElement(element.parentNode);
+	} else {
+		return null;
+	}
+}

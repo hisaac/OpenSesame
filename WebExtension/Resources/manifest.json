@@ -14,10 +14,6 @@
 		"512": "images/icon-512.png"
 	},
 
-	"background": {
-		"scripts": ["background.js"]
-	},
-
 	"content_scripts": [
 		{
 			"js": ["content.js"],
@@ -33,10 +29,5 @@
 			"32": "images/toolbar-icon-32.png",
 			"38": "images/toolbar-icon-38.png"
 		}
-	},
-
-	"permissions": [
-		"activeTab",
-		"webRequest"
-	]
+	}
 }
