@@ -13,7 +13,7 @@ window.addEventListener("click", (event) => {
 function handleWindowClick(event) {
 	const linkElement = findLinkElement(event.target);
 	if (linkElement) {
-		event.preventDefault();
+		// event.preventDefault();
 		console.log(linkElement.href);
 	}
 }
