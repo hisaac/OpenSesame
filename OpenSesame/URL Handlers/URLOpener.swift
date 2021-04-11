@@ -172,14 +172,19 @@ final class URLOpener: URLHandlerDelegate {
 				[url],
 				withApplicationAt: applicationURL,
 				configuration: openConfiguration,
-				completionHandler: { runningApplication, error in
-					if let error = error {
-						NSApp.presentError(error)
-					} else {
-						NSApp.deactivate()
-					}
-				}
+				completionHandler: self?.workspaceOpenCompletionHandler(runningApplication:error:)
 			)
+		}
+	}
+
+	func workspaceOpenCompletionHandler(runningApplication: NSRunningApplication?, error: Error?) {
+		// `NSApp.deactivate()` (and possibly `presentError` as well) require being called on the main thread
+		DispatchQueue.main.async {
+			if let error = error {
+				NSApp.presentError(error)
+			} else {
+				NSApp.deactivate()
+			}
 		}
 	}
 }
