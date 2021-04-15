@@ -17,7 +17,7 @@ protocol URLHandlerDelegate: AnyObject {
 }
 
 extension URLHandlerDelegate {
-	// Convenience method to pacc false if no `usingFallbackHandler` value is given
+	// Convenience method to pass `false` if no `usingFallbackHandler` value is given
 	func open(_ url: URL) {
 		open(url, usingFallbackHandler: false)
 	}
