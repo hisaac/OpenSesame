@@ -30,18 +30,18 @@ final class URLOpener: URLHandlerDelegate {
 	internal let workspace: NSWorkspace
 
 	// Generic handlers
-	private let shortlinkHandler: URLHandler?
-	private let fallbackHandler: URLHandler?
+	private let shortlinkHandler: URLHandler
+	private let fallbackHandler: URLHandler
 
 	// App-specific handlers
-	private let appleMusicHandler: URLHandler?
-	private let appleNewsHandler: URLHandler?
-	private let appStoreHandler: URLHandler?
-	private let discordHandler: URLHandler?
-	private let slackHandler: URLHandler?
-	private let spotifyHandler: URLHandler?
-	private let twitterHandler: URLHandler?
-	private let zoomHandler: URLHandler?
+	private let appleMusicHandler: URLHandler
+	private let appleNewsHandler: URLHandler
+	private let appStoreHandler: URLHandler
+	private let discordHandler: URLHandler
+	private let slackHandler: URLHandler
+	private let spotifyHandler: URLHandler
+	private let twitterHandler: URLHandler
+	private let zoomHandler: URLHandler
 
 	init() {
 		workspace = NSWorkspace.shared
@@ -59,16 +59,16 @@ final class URLOpener: URLHandlerDelegate {
 	}
 
 	func setDelegates() {
-		shortlinkHandler?.delegate = self
-		fallbackHandler?.delegate = self
-		appleMusicHandler?.delegate = self
-		appleNewsHandler?.delegate = self
-		appStoreHandler?.delegate = self
-		discordHandler?.delegate = self
-		slackHandler?.delegate = self
-		spotifyHandler?.delegate = self
-		twitterHandler?.delegate = self
-		zoomHandler?.delegate = self
+		shortlinkHandler.delegate = self
+		fallbackHandler.delegate = self
+		appleMusicHandler.delegate = self
+		appleNewsHandler.delegate = self
+		appStoreHandler.delegate = self
+		discordHandler.delegate = self
+		slackHandler.delegate = self
+		spotifyHandler.delegate = self
+		twitterHandler.delegate = self
+		zoomHandler.delegate = self
 	}
 
 	func open(_ urls: [URL]) {
@@ -79,11 +79,6 @@ final class URLOpener: URLHandlerDelegate {
 
 	// swiftlint:disable:next cyclomatic_complexity
 	func open(_ url: URL, usingFallbackHandler: Bool) {
-		guard let fallbackHandler = fallbackHandler else {
-			print("ERROR")
-			return
-		}
-
 		guard Settings.urlHandlingEnabled,
 			  usingFallbackHandler == false else {
 			fallbackHandler.handle(url)
@@ -91,52 +86,59 @@ final class URLOpener: URLHandlerDelegate {
 		}
 
 		// swiftlint:disable statement_position
-		if shortlinkHandler?.canHandle(url) == true {
-			shortlinkHandler?.handle(url)
+		if shortlinkHandler.canHandle(url) {
+			shortlinkHandler.handle(url)
+			return
 		}
 
-		else if appleMusicHandler?.canHandle(url) == true {
-			appleMusicHandler?.handle(url)
+		if appleMusicHandler.canHandle(url) {
+			appleMusicHandler.handle(url)
+			return
 		}
 
-		else if appleNewsHandler?.canHandle(url) == true {
-			appleNewsHandler?.handle(url)
+		if appleNewsHandler.canHandle(url) {
+			appleNewsHandler.handle(url)
+			return
 		}
 
-		else if appStoreHandler?.canHandle(url) == true {
-			appStoreHandler?.handle(url)
+		if appStoreHandler.canHandle(url) {
+			appStoreHandler.handle(url)
+			return
 		}
 
-		else if appleMusicHandler?.canHandle(url) == true {
-			appleMusicHandler?.handle(url)
+		if appleMusicHandler.canHandle(url) {
+			appleMusicHandler.handle(url)
+			return
 		}
 
 		// TODO: Implement
-		else if discordHandler?.canHandle(url) == true {
-			discordHandler?.handle(url)
+		if discordHandler.canHandle(url) {
+			discordHandler.handle(url)
+			return
 		}
 
 		// TODO: Implement
-		else if slackHandler?.canHandle(url) == true {
-			slackHandler?.handle(url)
+		if slackHandler.canHandle(url) {
+			slackHandler.handle(url)
+			return
 		}
 
-		else if spotifyHandler?.canHandle(url) == true {
-			spotifyHandler?.handle(url)
+		if spotifyHandler.canHandle(url) {
+			spotifyHandler.handle(url)
+			return
 		}
 
-		else if twitterHandler?.canHandle(url) == true {
-			twitterHandler?.handle(url)
+		if twitterHandler.canHandle(url) {
+			twitterHandler.handle(url)
+			return
 		}
 
-		else if zoomHandler?.canHandle(url) == true {
-			zoomHandler?.handle(url)
+		if zoomHandler.canHandle(url) {
+			zoomHandler.handle(url)
+			return
 		}
 
-		else {
-			fallbackHandler.handle(url)
-		}
-		// swiftlint:enable statement_position
+		fallbackHandler.handle(url)
 	}
 
 	// MARK: - Open methods
@@ -147,7 +149,7 @@ final class URLOpener: URLHandlerDelegate {
 		guard let urlFromComponents = urlComponents?.url else {
 			// TODO: Implement real logging
 			print("Unable to generate URL from URLComponents. Opening original URL in default browser instead.")
-			fallbackHandler?.handle(originalURL)
+			fallbackHandler.handle(originalURL)
 			return
 		}
 
@@ -156,7 +158,7 @@ final class URLOpener: URLHandlerDelegate {
 
 	func open(url: URL, usingApplicationWithBundleIdentifier bundleIdentifier: String) {
 		guard let applicationURL = workspace.urlForApplication(withBundleIdentifier: bundleIdentifier) else {
-			fallbackHandler?.handle(url)
+			fallbackHandler.handle(url)
 			return
 		}
 		open(url: url, usingApplicationAt: applicationURL)
