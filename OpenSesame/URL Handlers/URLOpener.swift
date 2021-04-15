@@ -71,6 +71,19 @@ final class URLOpener: URLHandlerDelegate {
 		zoomHandler.delegate = self
 	}
 
+	func canOpen(_ url: URL) -> Bool {
+		return shortlinkHandler.canHandle(url)
+			|| fallbackHandler.canHandle(url)
+			|| appleMusicHandler.canHandle(url)
+			|| appleNewsHandler.canHandle(url)
+			|| appStoreHandler.canHandle(url)
+			|| discordHandler.canHandle(url)
+			|| slackHandler.canHandle(url)
+			|| spotifyHandler.canHandle(url)
+			|| twitterHandler.canHandle(url)
+			|| zoomHandler.canHandle(url)
+	}
+
 	func open(_ urls: [URL]) {
 		for url in urls {
 			open(url)
