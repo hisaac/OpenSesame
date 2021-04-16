@@ -10,8 +10,8 @@ import Foundation
 final class ShortlinkHandler: URLHandler {
 	weak var delegate: URLHandlerDelegate?
 
-	// TODO: Give users the ability to customize shortlink hosts
-	let knownShortLinkHosts = [
+	// TODO: Give users the ability to customize shortlink domains
+	let knownShortLinkDomains = [
 		"adf.ly",
 		"bit.do",
 		"bit.ly",
@@ -20,6 +20,7 @@ final class ShortlinkHandler: URLHandler {
 		"fur.ly",
 		"goo.gl",
 		"is.gd",
+		"list-manage.com",
 		"mcaf.ee",
 		"ow.ly",
 		"spoti.fi",
@@ -31,11 +32,11 @@ final class ShortlinkHandler: URLHandler {
 
 	func canHandle(_ url: URL) -> Bool {
 		guard Settings.handleShortLinkURLs,
-			  let host = url.host else {
+			  let domain = url.domain else {
 			return false
 		}
 
-		return knownShortLinkHosts.contains(host)
+		return knownShortLinkDomains.contains(domain)
 	}
 
 	func handle(_ url: URL) {
