@@ -32,11 +32,11 @@ final class ShortlinkHandler: URLHandler {
 
 	func canHandle(_ url: URL) -> Bool {
 		guard Settings.handleShortLinkURLs,
-			  let domain = url.domain else {
+			  let host = url.host else {
 			return false
 		}
 
-		return knownShortLinkDomains.contains(domain)
+		return knownShortLinkDomains.contains(where: { $0.hasSuffix(host) })
 	}
 
 	func handle(_ url: URL) {
