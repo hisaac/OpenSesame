@@ -60,8 +60,9 @@ struct ZoomMeetingURL {
 		   let conferenceNumberQueryItemValue = conferenceNumberQueryItem.value,
 		   let conferenceNumber = Int(conferenceNumberQueryItemValue) {
 			self.conferenceNumber = conferenceNumber
-		} else if let lastPathComponent = url.pathComponents.last,
-				  let conferenceNumber = Int(lastPathComponent) {
+		} else if let actionIndex = (url.pathComponents.firstIndex(of: "j") ?? url.pathComponents.firstIndex(of: "p")),
+				  actionIndex < url.pathComponents.count - 1,
+				  let conferenceNumber = Int(url.pathComponents[actionIndex + 1]) {
 			self.conferenceNumber = conferenceNumber
 		} else {
 			return nil
