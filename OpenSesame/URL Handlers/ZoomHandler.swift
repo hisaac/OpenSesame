@@ -23,21 +23,90 @@ final class ZoomHandler: URLHandler {
 	}
 
 	func handle(_ url: URL) {
-		var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
-		urlComponents?.scheme = "zoommtg"
+		if let zoomURL = ZoomMeetingURL(url)?.url {
+			delegate?.open(url: zoomURL, usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.zoom.rawValue)
+		} else {
+			delegate?.open(url, usingFallbackHandler: true)
+		}
+	}
+}
 
-		if urlComponents?.path.contains("/j/") == true {
-			urlComponents?.path = "/join"
+struct ZoomMeetingURL {
 
-			let conferenceNumberQueryItem = URLQueryItem(name: "confno", value: url.pathComponents.last)
-			urlComponents?.queryItems?.append(conferenceNumberQueryItem)
+	// TODO: Add more url parameters from here: https://marketplace.zoomgov.com/docs/guides/guides/client-url-schemes
+
+	private let scheme = "zoommtg"
+	let host: String
+	let action: Action
+	let conferenceNumber: Int
+	let password: String?
+
+	init?(_ url: URL) {
+		guard let host = url.host,
+			  host.hasSuffix("zoom.us"),
+			  url.pathComponents.containsNone(of: "saml", "oauth", "share") else {
+			return nil
+		}
+		self.host = host
+
+		guard let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+			return nil
 		}
 
-		delegate?.open(
-			urlComponents: urlComponents,
-			from: url,
-			usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.zoom.rawValue
-		)
+		guard let action = Action(path: urlComponents.path) else { return nil }
+		self.action = action
+
+		if let conferenceNumberQueryItem = urlComponents.queryItems?.first(where: { $0.name == "confno" }),
+		   let conferenceNumberQueryItemValue = conferenceNumberQueryItem.value,
+		   let conferenceNumber = Int(conferenceNumberQueryItemValue) {
+			self.conferenceNumber = conferenceNumber
+		} else if let lastPathComponent = url.pathComponents.last,
+				  let conferenceNumber = Int(lastPathComponent) {
+			self.conferenceNumber = conferenceNumber
+		} else {
+			return nil
+		}
+
+		let passwordQueryItem = urlComponents.queryItems?.first(where: { $0.name == "pwd" })
+		password = passwordQueryItem?.value
 	}
 
+	var url: URL? {
+		var urlComponents = URLComponents()
+		urlComponents.scheme = scheme
+		urlComponents.host = host
+		urlComponents.path = action.path
+
+		if urlComponents.queryItems == nil { urlComponents.queryItems = [] }
+		urlComponents.queryItems?.append(
+			URLQueryItem(name: "confno", value: String(conferenceNumber))
+		)
+
+		if let password = password {
+			urlComponents.queryItems?.append(
+				URLQueryItem(name: "pwd", value: password)
+			)
+		}
+
+		return urlComponents.url
+	}
+
+	enum Action: String {
+		case join
+		case start
+
+		init?(path: String) {
+			if path.containsAny(of: "/j/", "join?") {
+				self = .join
+			} else if path.containsAny(of: "/s/", "start?") {
+				self = .start
+			} else {
+				return nil
+			}
+		}
+
+		var path: String {
+			return "/\(rawValue)"
+		}
+	}
 }

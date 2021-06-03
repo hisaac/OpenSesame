@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol URLHandler: class {
+protocol URLHandler: AnyObject {
 	var delegate: URLHandlerDelegate? { get set }
 	func canHandle(_ url: URL) -> Bool
 	func handle(_ url: URL)
