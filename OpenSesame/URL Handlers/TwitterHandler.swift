@@ -26,17 +26,29 @@ final class TwitterHandler: URLHandler {
 	}
 
 	/// If Twitter tries to open the URL of a tweet that doesn't exist (if it were deleted for instance), it sends the URL instead to the default browser
-	/// which in this case is our app. This causes an unending loop. So here we track if the current Twitter URL is the same one that was just tried to open,
-	/// and send it to the default browser if so.
+	/// — which is Open Sesame — so this causes an infinite loop.
 	private var lastURLHandledByTwitterApp: URL?
+	private var timeOfLastURLHandledByTwitterApp = Date.distantPast
 
 	private func handleUsingTwitterApp(_ url: URL) {
-		guard url != lastURLHandledByTwitterApp else {
+
+		// If the URL we're trying to open is the same as the last one,
+		// and it has been less than 1 second since we last opened the URL,
+		// then send the link to the fallback browser to avoid an infinite loop (mentioned above)
+		if url == lastURLHandledByTwitterApp,
+		   timeOfLastURLHandledByTwitterApp.timeIntervalSinceNow <= 1 {
 			delegate?.open(url, usingFallbackHandler: true)
 			return
 		}
 
 		lastURLHandledByTwitterApp = url
+
+		if #available(macOS 12, *) {
+			timeOfLastURLHandledByTwitterApp = .now
+		} else {
+			timeOfLastURLHandledByTwitterApp = Date()
+		}
+
 		delegate?.open(url: url, usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.twitter.rawValue)
 	}
 
