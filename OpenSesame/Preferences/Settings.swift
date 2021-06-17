@@ -28,7 +28,7 @@ struct Settings {
 	/// Defaults to Safari, as that's the only browser we can more or less guarantee will be installed on the system
 	@UserDefaultsBacked(
 		key: "defaultFallbackBrowserBundleIdentifier",
-		defaultValue: URLOpener.KnownBundleIdentifier.safari.rawValue)
+		defaultValue: URLOpener.KnownBundleIdentifier.safariTechnologyPreview.rawValue)
 	static var defaultFallbackBrowserBundleIdentifier: String
 
 	// MARK: - App Handler Settings

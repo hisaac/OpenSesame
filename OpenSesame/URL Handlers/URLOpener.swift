@@ -25,6 +25,7 @@ final class URLOpener: URLHandlerDelegate {
 		case firefox = "org.mozilla.firefox"
 		case opera = "com.operasoftware.Opera"
 		case safari = "com.apple.Safari"
+		case safariTechnologyPreview = "com.apple.SafariTechnologyPreview"
 	}
 
 	internal let workspace: NSWorkspace
