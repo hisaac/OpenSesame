@@ -105,22 +105,26 @@ final class URLOpener: URLHandlerDelegate {
 			return
 		}
 
-		if appleMusicHandler.canHandle(url) {
+		if workspace.urlForApplication(withBundleIdentifier: KnownBundleIdentifier.music.rawValue) != nil,
+		   appleMusicHandler.canHandle(url) {
 			appleMusicHandler.handle(url)
 			return
 		}
 
-		if appleNewsHandler.canHandle(url) {
+		if workspace.urlForApplication(withBundleIdentifier: KnownBundleIdentifier.news.rawValue) != nil,
+		   appleNewsHandler.canHandle(url) {
 			appleNewsHandler.handle(url)
 			return
 		}
 
-		if appStoreHandler.canHandle(url) {
+		if workspace.urlForApplication(withBundleIdentifier: KnownBundleIdentifier.appStore.rawValue) != nil,
+		   appStoreHandler.canHandle(url) {
 			appStoreHandler.handle(url)
 			return
 		}
 
-		if appleMusicHandler.canHandle(url) {
+		if workspace.urlForApplication(withBundleIdentifier: KnownBundleIdentifier.music.rawValue) != nil,
+		   appleMusicHandler.canHandle(url) {
 			appleMusicHandler.handle(url)
 			return
 		}
@@ -137,17 +141,20 @@ final class URLOpener: URLHandlerDelegate {
 			return
 		}
 
-		if spotifyHandler.canHandle(url) {
+		if workspace.urlForApplication(withBundleIdentifier: KnownBundleIdentifier.spotify.rawValue) != nil,
+		   spotifyHandler.canHandle(url) {
 			spotifyHandler.handle(url)
 			return
 		}
 
-		if twitterHandler.canHandle(url) {
+		if workspace.urlForApplication(withBundleIdentifier: KnownBundleIdentifier.twitter.rawValue) != nil,
+		   twitterHandler.canHandle(url) {
 			twitterHandler.handle(url)
 			return
 		}
 
-		if zoomHandler.canHandle(url) {
+		if workspace.urlForApplication(withBundleIdentifier: KnownBundleIdentifier.zoom.rawValue) != nil,
+		   zoomHandler.canHandle(url) {
 			zoomHandler.handle(url)
 			return
 		}
