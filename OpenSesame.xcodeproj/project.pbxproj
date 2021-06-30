@@ -256,7 +256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A9AB25525A167AE003842F8 /* Build configuration list for PBXNativeTarget "Open Sesame" */;
 			buildPhases = (
-				4A906D6B25A168F300CF2A5F /* Run SwiftLint */,
+				4A9CD37E268C0A03009F2D89 /* ShellScript */,
 				4A9AB24325A167AD003842F8 /* Sources */,
 				4A9AB24425A167AD003842F8 /* Frameworks */,
 				4A9AB24525A167AD003842F8 /* Resources */,
@@ -362,7 +362,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A906D6B25A168F300CF2A5F /* Run SwiftLint */ = {
+		4A9CD37E268C0A03009F2D89 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,14 +371,13 @@
 			);
 			inputPaths = (
 			);
-			name = "Run SwiftLint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Support for M1 Macs: Homebrew is installed on /opt/homebrew/ by default\nPATH=/opt/homebrew/bin/:$PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
