@@ -256,7 +256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A9AB25525A167AE003842F8 /* Build configuration list for PBXNativeTarget "Open Sesame" */;
 			buildPhases = (
-				4A9CD37E268C0A03009F2D89 /* ShellScript */,
+				4A9CD37E268C0A03009F2D89 /* Run SwiftLint */,
 				4A9AB24325A167AD003842F8 /* Sources */,
 				4A9AB24425A167AD003842F8 /* Frameworks */,
 				4A9AB24525A167AD003842F8 /* Resources */,
@@ -362,7 +362,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A9CD37E268C0A03009F2D89 /* ShellScript */ = {
+		4A9CD37E268C0A03009F2D89 /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,6 +371,7 @@
 			);
 			inputPaths = (
 			);
+			name = "Run SwiftLint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
