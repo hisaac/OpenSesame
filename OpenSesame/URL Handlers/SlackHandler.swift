@@ -11,28 +11,19 @@ final class SlackHandler: URLHandler {
 	weak var delegate: URLHandlerDelegate?
 
 	func canHandle(_ url: URL) -> Bool {
-		guard Settings.handleSlackURLs else {
+		guard Settings.handleSlackURLs,
+			  let host = url.host else {
 			return false
 		}
 
-		// TODO: Find way to determine if this is a Slack URL
-		let isSlackURL = false
+		let isSlackURL = host.hasSuffix("slack.com")
 
-		return isSlackURL
+		// TODO: Actually figure this out
+		return false
 	}
 
-	// TODO: Determine if this is needed or not
-	private var lastURLHandledBySlack: URL?
-
 	func handle(_ url: URL) {
-		guard url != lastURLHandledBySlack else {
-			delegate?.open(url, usingFallbackHandler: true)
-			return
-		}
-
-		lastURLHandledBySlack = url
-
 		// TODO: Figure out modification of URL necessary (slack://) https://api.slack.com/reference/deep-linking
-		delegate?.open(url, usingFallbackHandler: true)
+		delegate?.open(url: url, usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.slack.rawValue)
 	}
 }

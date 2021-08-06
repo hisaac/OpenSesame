@@ -28,6 +28,16 @@ final class URLOpener: URLHandlerDelegate {
 		case safariTechnologyPreview = "com.apple.SafariTechnologyPreview"
 	}
 
+	struct URLOpenAttempt {
+		let url: URL
+		let attemptTime = Date()
+		var usedFallback = false
+
+		init(url: URL) {
+			self.url = url
+		}
+	}
+
 	internal let workspace: NSWorkspace
 
 	// Generic handlers
@@ -91,11 +101,16 @@ final class URLOpener: URLHandlerDelegate {
 		}
 	}
 
-	// swiftlint:disable:next cyclomatic_complexity
+	// swiftlint:disable:next cyclomatic_complexity function_body_length
 	func open(_ url: URL, usingFallbackHandler: Bool) {
-		guard Settings.urlHandlingEnabled,
-			  usingFallbackHandler == false else {
-			fallbackHandler.handle(url)
+		if url != urlOpenAttempt?.url {
+			urlOpenAttempt = URLOpenAttempt(url: url)
+		}
+
+		guard Settings.urlHandlingEnabled else { return }
+
+		if usingFallbackHandler {
+			openWithFallbackBrowser(url: url)
 			return
 		}
 
@@ -159,6 +174,11 @@ final class URLOpener: URLHandlerDelegate {
 			return
 		}
 
+		openWithFallbackBrowser(url: url)
+	}
+
+	private func openWithFallbackBrowser(url: URL) {
+		urlOpenAttempt?.usedFallback = true
 		fallbackHandler.handle(url)
 	}
 
@@ -185,29 +205,43 @@ final class URLOpener: URLHandlerDelegate {
 		open(url: url, usingApplicationAt: applicationURL)
 	}
 
+	var urlOpenAttempt: URLOpenAttempt?
+
 	func open(url: URL, usingApplicationAt applicationURL: URL) {
 		// Checking `NSApp.isActive` must be done on the main thread
 		DispatchQueue.main.async { [weak self] in
+			guard let self = self else { return }
+
 			let openConfiguration = NSWorkspace.OpenConfiguration()
 			openConfiguration.activates = NSApp.isActive
 
-			self?.workspace.open(
+			self.workspace.open(
 				[url],
 				withApplicationAt: applicationURL,
 				configuration: openConfiguration,
-				completionHandler: self?.workspaceOpenCompletionHandler(runningApplication:error:)
+				completionHandler: self.workspaceOpenCompletionHandler(runningApplication:error:)
 			)
 		}
 	}
 
 	func workspaceOpenCompletionHandler(runningApplication: NSRunningApplication?, error: Error?) {
-		// `NSApp.deactivate()` (and possibly `presentError` as well) require being called on the main thread
-		DispatchQueue.main.async {
-			if let error = error {
-				NSApp.presentError(error)
-			} else {
-				NSApp.deactivate()
+		if error == nil {
+			// If we have no error, then the attempt was successful,
+			// and we can nil this out
+			urlOpenAttempt = nil
+		} else {
+			// IF there was an error,
+			// AND it was not thrown while trying to use the fallback browser,
+			// THEN try opening it with the fallback browser to recover
+			if urlOpenAttempt?.usedFallback == false {
+				urlOpenAttempt?.usedFallback = true
+				guard let url = urlOpenAttempt?.url else { return }
+				open(url, usingFallbackHandler: true)
 			}
+		}
+
+		DispatchQueue.main.async {
+			NSApp.deactivate()
 		}
 	}
 }
