@@ -5,6 +5,7 @@
 //  Created by Isaac Halvorson on 1/12/21.
 //
 
+import Defaults
 import Foundation
 
 final class FallbackHandler: URLHandler {
@@ -18,7 +19,7 @@ final class FallbackHandler: URLHandler {
 	// swiftlint:disable line_length
 	func handle(_ url: URL) {
 		var fallbackAppURL: URL
-		if let defaultFallbackAppURL = delegate?.workspace.urlForApplication(withBundleIdentifier: Settings.defaultFallbackBrowserBundleIdentifier) {
+		if let defaultFallbackAppURL = delegate?.workspace.urlForApplication(withBundleIdentifier: Defaults[.defaultFallbackBrowserBundleIdentifier]) {
 			fallbackAppURL = defaultFallbackAppURL
 		} else if let safariAppURL = delegate?.workspace.urlForApplication(withBundleIdentifier: URLOpener.KnownBundleIdentifier.safari.rawValue) {
 			fallbackAppURL = safariAppURL

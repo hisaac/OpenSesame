@@ -5,13 +5,14 @@
 //  Created by Isaac Halvorson on 1/12/21.
 //
 
+import Defaults
 import Foundation
 
 final class ZoomHandler: URLHandler {
 	weak var delegate: URLHandlerDelegate?
 
 	func canHandle(_ url: URL) -> Bool {
-		guard Settings.handleZoomURLs,
+		guard Defaults[.handleZoomURLs],
 			  let host = url.host else {
 			return false
 		}

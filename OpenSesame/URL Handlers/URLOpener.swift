@@ -6,6 +6,7 @@
 //
 
 import AppKit
+import Defaults
 import LSFoundation
 
 final class URLOpener: URLHandlerDelegate {
@@ -107,7 +108,7 @@ final class URLOpener: URLHandlerDelegate {
 			urlOpenAttempt = URLOpenAttempt(url: url)
 		}
 
-		guard Settings.urlHandlingEnabled else { return }
+		guard Defaults[.urlHandlingEnabled] else { return }
 
 		if usingFallbackHandler {
 			openWithFallbackBrowser(url: url)

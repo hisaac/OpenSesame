@@ -5,13 +5,14 @@
 //  Created by Isaac Halvorson on 1/12/21.
 //
 
+import Defaults
 import Foundation
 
 final class AppleMusicHandler: URLHandler {
 	weak var delegate: URLHandlerDelegate?
 
 	func canHandle(_ url: URL) -> Bool {
-		guard Settings.handleAppleMusicURLs,
+		guard Defaults[.handleAppleMusicURLs],
 			  let host = url.host else {
 			return false
 		}

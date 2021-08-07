@@ -14,6 +14,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "LSFoundation"
+               BuildableName = "LSFoundation"
+               BlueprintName = "LSFoundation"
+               ReferencedContainer = "container:../LSFoundation">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "4A9AB24625A167AD003842F8"
                BuildableName = "Open Sesame.app"
                BlueprintName = "Open Sesame"

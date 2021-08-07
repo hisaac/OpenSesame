@@ -5,6 +5,7 @@
 //  Created by Isaac Halvorson on 1/12/21.
 //
 
+import Defaults
 import Foundation
 
 final class ShortlinkHandler: URLHandler {
@@ -31,7 +32,7 @@ final class ShortlinkHandler: URLHandler {
 	]
 
 	func canHandle(_ url: URL) -> Bool {
-		guard Settings.handleShortLinkURLs,
+		guard Defaults[.handleShortLinkURLs],
 			  let host = url.host else {
 			return false
 		}

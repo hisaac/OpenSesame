@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A1DFA8C25A24DF700E5739E /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DFA8A25A24DF700E5739E /* GeneralPreferenceViewController.swift */; };
-		4A1DFA8D25A24DF700E5739E /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1DFA8B25A24DF700E5739E /* GeneralPreferenceViewController.xib */; };
+		4A1DFA8C25A24DF700E5739E /* GeneralPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DFA8A25A24DF700E5739E /* GeneralPreferencesView.swift */; };
 		4A3F130C26101BDD0057B7A5 /* DiscordHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F130B26101BDD0057B7A5 /* DiscordHandler.swift */; };
 		4A906D6525A168CE00CF2A5F /* LSFoundation in Resources */ = {isa = PBXBuildFile; fileRef = 4A906D6425A168CE00CF2A5F /* LSFoundation */; };
 		4A906D6D25A1691900CF2A5F /* URLOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A906D6C25A1691900CF2A5F /* URLOpener.swift */; };
@@ -17,13 +16,15 @@
 		4A9AB25025A167AE003842F8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A9AB24E25A167AE003842F8 /* MainMenu.xib */; };
 		4ADA4F5A25A20F4F00893A0A /* OSLaunchServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F5925A20F4F00893A0A /* OSLaunchServices.swift */; };
 		4ADA4F6025A2187600893A0A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F5F25A2187600893A0A /* Settings.swift */; };
-		4ADA4F6425A2188D00893A0A /* UserDefaultsBacked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6325A2188D00893A0A /* UserDefaultsBacked.swift */; };
 		4ADA4F6725A2190800893A0A /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6625A2190800893A0A /* Enablable.swift */; };
 		4ADA4F6A25A2198E00893A0A /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6925A2198E00893A0A /* StatusItemController.swift */; };
 		4ADA4F6E25A21ABB00893A0A /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */; };
 		4AE4C9BD25A248E600FDFE28 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE4C9BC25A248E600FDFE28 /* Preferences */; };
-		4AE4C9C425A24AA200FDFE28 /* PreferencesWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4C9C325A24AA200FDFE28 /* PreferencesWindowDelegate.swift */; };
 		4AEA100D25A16B1900D0AF31 /* LSFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4AEA100C25A16B1900D0AF31 /* LSFoundation */; };
+		9B6830DD26BE25A200E2B2BF /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 9B6830DC26BE25A200E2B2BF /* Defaults */; };
+		9BD4E0E526BEA7C9008E25EE /* SlackTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD4E0E426BEA7C9008E25EE /* SlackTeam.swift */; };
+		9BD4E0E826BEB954008E25EE /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD4E0E726BEB954008E25EE /* KeyboardShortcuts */; };
+		9BFC66BA26BDF6C900FFCCF5 /* SlackPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC66B926BDF6C900FFCCF5 /* SlackPreferencesView.swift */; };
 		F2A1588A25ADF2D4000745EB /* FallbackHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A1588925ADF2D4000745EB /* FallbackHandler.swift */; };
 		F2A1588F25ADF35E000745EB /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A1588E25ADF35E000745EB /* URLHandler.swift */; };
 		F2A1589725ADF4FE000745EB /* ShortlinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A1589625ADF4FE000745EB /* ShortlinkHandler.swift */; };
@@ -72,8 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4A1DFA8A25A24DF700E5739E /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
-		4A1DFA8B25A24DF700E5739E /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
+		4A1DFA8A25A24DF700E5739E /* GeneralPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesView.swift; sourceTree = "<group>"; };
 		4A3F130B26101BDD0057B7A5 /* DiscordHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscordHandler.swift; sourceTree = "<group>"; };
 		4A52A37C25A2037A004CAFDB /* TestURLs.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TestURLs.md; sourceTree = "<group>"; };
 		4A906D6425A168CE00CF2A5F /* LSFoundation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LSFoundation; path = ../LSFoundation; sourceTree = "<group>"; };
@@ -90,11 +90,11 @@
 		4A9AB25225A167AE003842F8 /* OpenSesame.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenSesame.entitlements; sourceTree = "<group>"; };
 		4ADA4F5925A20F4F00893A0A /* OSLaunchServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSLaunchServices.swift; sourceTree = "<group>"; };
 		4ADA4F5F25A2187600893A0A /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		4ADA4F6325A2188D00893A0A /* UserDefaultsBacked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBacked.swift; sourceTree = "<group>"; };
 		4ADA4F6625A2190800893A0A /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
 		4ADA4F6925A2198E00893A0A /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
-		4AE4C9C325A24AA200FDFE28 /* PreferencesWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowDelegate.swift; sourceTree = "<group>"; };
+		9BD4E0E426BEA7C9008E25EE /* SlackTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackTeam.swift; sourceTree = "<group>"; };
+		9BFC66B926BDF6C900FFCCF5 /* SlackPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackPreferencesView.swift; sourceTree = "<group>"; };
 		F2A1588925ADF2D4000745EB /* FallbackHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackHandler.swift; sourceTree = "<group>"; };
 		F2A1588E25ADF35E000745EB /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
 		F2A1589625ADF4FE000745EB /* ShortlinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortlinkHandler.swift; sourceTree = "<group>"; };
@@ -125,6 +125,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B6830DD26BE25A200E2B2BF /* Defaults in Frameworks */,
+				9BD4E0E826BEB954008E25EE /* KeyboardShortcuts in Frameworks */,
 				4AEA100D25A16B1900D0AF31 /* LSFoundation in Frameworks */,
 				4AE4C9BD25A248E600FDFE28 /* Preferences in Frameworks */,
 			);
@@ -188,10 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				4ADA4F5F25A2187600893A0A /* Settings.swift */,
-				4ADA4F6325A2188D00893A0A /* UserDefaultsBacked.swift */,
-				4AE4C9C325A24AA200FDFE28 /* PreferencesWindowDelegate.swift */,
-				4A1DFA8A25A24DF700E5739E /* GeneralPreferenceViewController.swift */,
-				4A1DFA8B25A24DF700E5739E /* GeneralPreferenceViewController.xib */,
+				4A1DFA8A25A24DF700E5739E /* GeneralPreferencesView.swift */,
+				9BFC66B926BDF6C900FFCCF5 /* SlackPreferencesView.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -204,9 +204,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9BD4E0E326BEA7BC008E25EE /* Slack */ = {
+			isa = PBXGroup;
+			children = (
+				F2A158A925AE06BA000745EB /* SlackHandler.swift */,
+				9BD4E0E426BEA7C9008E25EE /* SlackTeam.swift */,
+			);
+			path = Slack;
+			sourceTree = "<group>";
+		};
 		F2A1588725ADF25F000745EB /* URL Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				9BD4E0E326BEA7BC008E25EE /* Slack */,
 				4A906D6C25A1691900CF2A5F /* URLOpener.swift */,
 				F2A158B125AE0AD9000745EB /* URLHandlerDelegate.swift */,
 				F2A1588E25ADF35E000745EB /* URLHandler.swift */,
@@ -215,7 +225,6 @@
 				F2A1589925ADFC84000745EB /* AppleMusicHandler.swift */,
 				F2A158A625AE0395000745EB /* AppleNewsHandler.swift */,
 				F2A1589C25ADFCD9000745EB /* AppStoreHandler.swift */,
-				F2A158A925AE06BA000745EB /* SlackHandler.swift */,
 				4A3F130B26101BDD0057B7A5 /* DiscordHandler.swift */,
 				F2A1589F25AE008F000745EB /* SpotifyHandler.swift */,
 				F2A158A325AE027F000745EB /* ZoomHandler.swift */,
@@ -271,6 +280,8 @@
 			packageProductDependencies = (
 				4AEA100C25A16B1900D0AF31 /* LSFoundation */,
 				4AE4C9BC25A248E600FDFE28 /* Preferences */,
+				9B6830DC26BE25A200E2B2BF /* Defaults */,
+				9BD4E0E726BEB954008E25EE /* KeyboardShortcuts */,
 			);
 			productName = OpenSesame;
 			productReference = 4A9AB24725A167AD003842F8 /* Open Sesame.app */;
@@ -322,6 +333,8 @@
 			mainGroup = 4A9AB23E25A167AD003842F8;
 			packageReferences = (
 				4AE4C9BB25A248E600FDFE28 /* XCRemoteSwiftPackageReference "Preferences" */,
+				9B6830DB26BE25A200E2B2BF /* XCRemoteSwiftPackageReference "Defaults" */,
+				9BD4E0E626BEB954008E25EE /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 			);
 			productRefGroup = 4A9AB24825A167AD003842F8 /* Products */;
 			projectDirPath = "";
@@ -338,7 +351,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A1DFA8D25A24DF700E5739E /* GeneralPreferenceViewController.xib in Resources */,
 				4A906D6525A168CE00CF2A5F /* LSFoundation in Resources */,
 				4A9AB24D25A167AE003842F8 /* Assets.xcassets in Resources */,
 				4A9AB25025A167AE003842F8 /* MainMenu.xib in Resources */,
@@ -391,17 +403,17 @@
 				F2A158A725AE0395000745EB /* AppleNewsHandler.swift in Sources */,
 				F2A1589725ADF4FE000745EB /* ShortlinkHandler.swift in Sources */,
 				F2A158B225AE0AD9000745EB /* URLHandlerDelegate.swift in Sources */,
-				4A1DFA8C25A24DF700E5739E /* GeneralPreferenceViewController.swift in Sources */,
+				4A1DFA8C25A24DF700E5739E /* GeneralPreferencesView.swift in Sources */,
 				4ADA4F6725A2190800893A0A /* Enablable.swift in Sources */,
+				9BFC66BA26BDF6C900FFCCF5 /* SlackPreferencesView.swift in Sources */,
 				F2A158AA25AE06BA000745EB /* SlackHandler.swift in Sources */,
-				4AE4C9C425A24AA200FDFE28 /* PreferencesWindowDelegate.swift in Sources */,
 				4ADA4F6A25A2198E00893A0A /* StatusItemController.swift in Sources */,
 				F2A1588A25ADF2D4000745EB /* FallbackHandler.swift in Sources */,
 				4ADA4F6E25A21ABB00893A0A /* LocalizedStrings.swift in Sources */,
 				F2A1589A25ADFC84000745EB /* AppleMusicHandler.swift in Sources */,
 				F2A1589D25ADFCD9000745EB /* AppStoreHandler.swift in Sources */,
 				4A906D6D25A1691900CF2A5F /* URLOpener.swift in Sources */,
-				4ADA4F6425A2188D00893A0A /* UserDefaultsBacked.swift in Sources */,
+				9BD4E0E526BEA7C9008E25EE /* SlackTeam.swift in Sources */,
 				F2A158A025AE008F000745EB /* SpotifyHandler.swift in Sources */,
 				4ADA4F5A25A20F4F00893A0A /* OSLaunchServices.swift in Sources */,
 				4A3F130C26101BDD0057B7A5 /* DiscordHandler.swift in Sources */,
@@ -682,6 +694,22 @@
 				minimumVersion = 2.2.0;
 			};
 		};
+		9B6830DB26BE25A200E2B2BF /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		9BD4E0E626BEB954008E25EE /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -693,6 +721,16 @@
 		4AEA100C25A16B1900D0AF31 /* LSFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LSFoundation;
+		};
+		9B6830DC26BE25A200E2B2BF /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B6830DB26BE25A200E2B2BF /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+		9BD4E0E726BEB954008E25EE /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9BD4E0E626BEB954008E25EE /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

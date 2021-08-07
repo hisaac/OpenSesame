@@ -5,13 +5,14 @@
 //  Created by Isaac Halvorson on 3/27/21.
 //
 
+import Defaults
 import Foundation
 
 final class DiscordHandler: URLHandler {
 	weak var delegate: URLHandlerDelegate?
 
 	func canHandle(_ url: URL) -> Bool {
-		guard Settings.handleDiscordURLs else {
+		guard Defaults[.handleDiscordURLs] else {
 			return false
 		}
 

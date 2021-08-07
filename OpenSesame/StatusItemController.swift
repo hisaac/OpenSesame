@@ -6,25 +6,53 @@
 //
 
 import AppKit
+import Defaults
 import os.log
 
-class StatusItemController {
+final class StatusItemController: NSObject {
 
-	typealias StatusItemControllerDelegate = Enablable & PreferencesWindowDelegate
-
-	weak var delegate: StatusItemControllerDelegate?
+	weak var delegate: PreferencesWindowDelegate?
 	private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-	private (set) var isEnabled = false
+	private lazy var menu = buildMenu()
 	private let logger: OSLog
 
 	init(logger: OSLog) {
 		self.logger = logger
+		super.init()
+		setupStatusItem()
+		setupUserDefaultsObservers()
+	}
+
+	private func setupStatusItem() {
 		statusItem.button?.image = NSImage(named: "StatusBarButtonImage")
-		statusItem.menu = buildMenu()
+		statusItem.button?.target = self
+		statusItem.button?.action = #selector(didClickStatusItem(_:))
+		statusItem.button?.sendAction(on: [.leftMouseDown, .rightMouseUp])
+	}
+
+	private func setupUserDefaultsObservers() {
+		Defaults.observe(.debugEnabled) { [weak self] change in
+			if change.newValue == true {
+				self?.debugMenuItem.state = .on
+			} else {
+				self?.debugMenuItem.state = .off
+			}
+		}.tieToLifetime(of: self)
+
+		Defaults.observe(.urlHandlingEnabled) { [weak self] change in
+			if change.newValue == true {
+				self?.enabledMenuItem.state = .on
+				self?.statusItem.button?.appearsDisabled = false
+			} else {
+				self?.enabledMenuItem.state = .off
+				self?.statusItem.button?.appearsDisabled = true
+			}
+		}.tieToLifetime(of: self)
 	}
 
 	private func buildMenu() -> NSMenu {
 		let menu = NSMenu()
+		menu.delegate = self
 		menu.items = [
 			NSMenuItem(
 				title: LocalizedStrings.appVersion,
@@ -90,38 +118,47 @@ class StatusItemController {
 	/// Toggles debug mode for the app
 	@objc
 	private func toggleDebugMode() {
-		Settings.debugEnabled.toggle()
-		if Settings.debugEnabled {
-			debugMenuItem.state = .on
-		} else {
-			debugMenuItem.state = .off
-		}
+		Defaults[.debugEnabled].toggle()
 	}
 
 	/// Toggles the enabled state of the menu
 	@objc
 	private func toggleIsEnabled() {
-		if isEnabled {
-			disable()
+		Defaults[.urlHandlingEnabled].toggle()
+	}
+
+	@objc
+	private func didClickStatusItem(_ sender: NSStatusItem) {
+		if isCurrentEventRightClickUp() {
+			rightClickAction()
 		} else {
-			enable()
+			leftClickAction()
 		}
+	}
+
+	private func isCurrentEventRightClickUp() -> Bool {
+		guard let currentEvent = NSApp.currentEvent else { return false }
+		let isRightClick = currentEvent.type == .rightMouseUp
+		let isControlClick = currentEvent.modifierFlags.contains(.control)
+		return isRightClick || isControlClick
+	}
+
+	private func rightClickAction() {
+		toggleIsEnabled()
+	}
+
+	private func leftClickAction() {
+		statusItem.menu = menu
+		statusItem.button?.performClick(nil)
 	}
 }
 
-extension StatusItemController: Enablable {
-	func enable() {
-		guard isEnabled == false else { return }
-		isEnabled = true
-		enabledMenuItem.state = .on
-		delegate?.enable()
-	}
-
-	func disable() {
-		guard isEnabled == true else { return }
-		isEnabled = false
-		enabledMenuItem.state = .off
-		delegate?.disable()
+extension StatusItemController: NSMenuDelegate {
+	internal func menuDidClose(_ menu: NSMenu) {
+		// In order to handle a right-=click event on the status item,
+		// we need to set the status item's menu to `nil`. Otherwise
+		// a right-click will perform the same action as a left-click
+		statusItem.menu = nil
 	}
 }
 

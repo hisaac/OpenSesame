@@ -6,6 +6,7 @@
 //
 
 import AppKit
+import Defaults
 import LSFoundation
 import os.log
 import Preferences
@@ -27,26 +28,39 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}()
 
 	lazy var preferencesWindowController = PreferencesWindowController(
-		preferencePanes: [GeneralPreferenceViewController()],
-		hidesToolbarForSingleItem: true
+		panes: [
+			Preferences.Pane(
+				identifier: .general,
+				title: "General",
+				toolbarIcon: NSImage(systemSymbolName: "gearshape", accessibilityDescription: "General Preferences")!,
+				contentView: { GeneralPreferencesView() }
+			),
+			Preferences.Pane(
+				identifier: .slack,
+				title: "Slack",
+				toolbarIcon: NSImage(systemSymbolName: "gearshape", accessibilityDescription: "Slack Preferences")!,
+				contentView: { SlackPreferencesView() }
+			)
+		]
 	)
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
 		statusItemController = StatusItemController(logger: logger)
 		statusItemController?.delegate = self
-		statusItemController?.enable()
+
+		fixPreferencesWindowOddAnimation()
 
 		print("Current default browser:", OSLaunchServices.defaultHTMLViewerApp ?? "Unknown")
 
-		if Settings.firstLaunch {
+		if Defaults[.firstLaunch] {
+			Defaults[.firstLaunch] = false
 			openPreferencesWindow()
-			Settings.firstLaunch = false
 		}
 
-		#if DEBUG
-		openPreferencesWindow()
-		Settings.debugEnabled = true
-		#endif
+//		#if DEBUG
+//		openPreferencesWindow()
+//		Settings.debugEnabled = true
+//		#endif
 	}
 
 	func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
@@ -57,34 +71,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		urlOpener.open(urls)
 	}
 
+	/// Workaround for a strange issue where the animation for the preferences window does not work correctly
+	/// source: https://github.com/sindresorhus/Preferences/issues/60#issuecomment-886146196
+	func fixPreferencesWindowOddAnimation() {
+		preferencesWindowController.show(preferencePane: .slack)
+		preferencesWindowController.show(preferencePane: .general)
+		preferencesWindowController.close()
+	}
 }
 
-extension AppDelegate: Enablable {
-	private(set) var isEnabled: Bool {
-		get { Settings.urlHandlingEnabled }
-		set {
-			Settings.urlHandlingEnabled = newValue
-			if newValue {
-				enable()
-			} else {
-				disable()
-			}
-		}
-	}
-
-	func enable() {
-
-	}
-
-	func disable() {
-
-	}
-
+protocol PreferencesWindowDelegate: AnyObject {
+	func openPreferencesWindow()
 }
 
 extension AppDelegate: PreferencesWindowDelegate {
 	func openPreferencesWindow() {
-		NSApp.activate(ignoringOtherApps: true)
 		preferencesWindowController.show()
 	}
 }

@@ -1,62 +1,64 @@
-//
-//  Settings.swift
-//  Open Sesame
-//
-//  Created by Isaac Halvorson on 1/3/21.
-//
-
+import Defaults
 import Foundation
-import Preferences
 
-struct Settings {
+// swiftlint:disable line_length
+
+extension Defaults.Keys {
 
 	// MARK: - General Settings
 
-	/// Sets whether debug mode is enabled
-	@UserDefaultsBacked(key: "debugEnabled", defaultValue: false)
-	static var debugEnabled: Bool
+	/// Whether debug mode is enabled
+	static let debugEnabled = Key<Bool>("debugEnabled", default: false)
 
-	/// Sets whether pasteboard filtering is enabled
-	@UserDefaultsBacked(key: "urlHandlingEnabled", defaultValue: true)
-	static var urlHandlingEnabled: Bool
+	/// Whether URL Handling is enabled
+	static let urlHandlingEnabled = Key<Bool>("urlHandlingEnabled", default: false)
 
 	/// Tracks if this is the first time the app has been launched
-	@UserDefaultsBacked(key: "firstLaunch", defaultValue: true)
-	static var firstLaunch: Bool
+	static let firstLaunch = Key<Bool>("firstLaunch", default: true)
 
-	/// The default browser to fallback to when handling a URL
-	/// Defaults to Safari, as that's the only browser we can more or less guarantee will be installed on the system
-	@UserDefaultsBacked(
-		key: "defaultFallbackBrowserBundleIdentifier",
-		defaultValue: URLOpener.KnownBundleIdentifier.safari.rawValue)
-	static var defaultFallbackBrowserBundleIdentifier: String
+	/// Whether or not to hide the menu item from the menu bar
+	static let showMenuItem = Key<Bool>("showMenuItem", default: false)
+
+	/// Whether or not to show the app in the dock
+	static let showInDock = Key<Bool>("showInDock", default: false)
+
+	/// What happens when left-clicking on the status item
+	static let statusItemLeftClickBehavior = Key<StatusItemLeftClickBehavior>("statusItemLeftClickBehavior", default: .openMenu)
 
 	// MARK: - App Handler Settings
 
-	@UserDefaultsBacked(key: "handleShortLinkURLs", defaultValue: true)
-	static var handleShortLinkURLs: Bool
+	/// The default browser to fallback to when handling a URL
+	/// Defaults to Safari, as that's the only browser we can more or less guarantee will be installed on the system
+	static let defaultFallbackBrowserBundleIdentifier = Key<String>("defaultFallbackBrowserBundleIdentifier", default: URLOpener.KnownBundleIdentifier.safari.rawValue)
 
-	@UserDefaultsBacked(key: "handleAppleMusicURLs", defaultValue: true)
-	static var handleAppleMusicURLs: Bool
+	// TODO: Find way to gather all url handlers and create defaults settings for them
 
-	@UserDefaultsBacked(key: "handleAppleNewsURLs", defaultValue: false)
-	static var handleAppleNewsURLs: Bool
+	static let handleShortLinkURLs = Key<Bool>("handleShortLinkURLs", default: true)
+	static let handleAppleMusicURLs = Key<Bool>("handleAppleMusicURLs", default: true)
+	static let handleAppleNewsURLs = Key<Bool>("handleAppleNewsURLs", default: false)
+	static let handleAppStoreURLs = Key<Bool>("handleAppStoreURLs", default: true)
+	static let handleDiscordURLs = Key<Bool>("handleDiscordURLs", default: true)
+	static let handleSlackURLs = Key<Bool>("handleSlackURLs", default: true)
+	static let handleSpotifyURLs = Key<Bool>("handleSpotifyURLs", default: true)
+	static let handleTwitterURLs = Key<Bool>("handleTwitterURLs", default: true)
+	static let handleZoomURLs = Key<Bool>("handleZoomURLs", default: true)
 
-	@UserDefaultsBacked(key: "handleAppStoreURLs", defaultValue: true)
-	static var handleAppStoreURLs: Bool
-
-	@UserDefaultsBacked(key: "handleDiscordURLs", defaultValue: true)
-	static var handleDiscordURLs: Bool
-
-	@UserDefaultsBacked(key: "handleSlackURLs", defaultValue: true)
-	static var handleSlackURLs: Bool
-
-	@UserDefaultsBacked(key: "handleSpotifyURLs", defaultValue: true)
-	static var handleSpotifyURLs: Bool
-
-	@UserDefaultsBacked(key: "handleTwitterURLs", defaultValue: true)
-	static var handleTwitterURLs: Bool
-
-	@UserDefaultsBacked(key: "handleZoomURLs", defaultValue: true)
-	static var handleZoomURLs: Bool
+	// List of known Slack Teams
+	static let slackTeams = Key<Set<SlackTeam>?>("slackTeams")
 }
+
+extension Defaults {
+	/// Reset `Defaults.Key` items back to their default value.
+	func resetToDefaults<T: Serializable>(_ keys: [Defaults.Key<T>]) {
+		for key in keys {
+			key.reset()
+		}
+	}
+}
+
+enum StatusItemLeftClickBehavior: String, Defaults.Serializable {
+	case openMenu
+	case toggleFiltering
+}
+
+// swiftlint:enable line_length
