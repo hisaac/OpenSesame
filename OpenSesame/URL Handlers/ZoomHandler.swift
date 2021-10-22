@@ -25,7 +25,7 @@ final class ZoomHandler: URLHandler {
 
 	func handle(_ url: URL) {
 		if let zoomURL = ZoomMeetingURL(url)?.url {
-			delegate?.open(url: zoomURL, usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.zoom.rawValue)
+			delegate?.open(url: zoomURL, usingApplicationWithBundleIdentifier: KnownBundleIdentifier.zoom.rawValue)
 		} else {
 			delegate?.open(url, usingFallbackHandler: true)
 		}

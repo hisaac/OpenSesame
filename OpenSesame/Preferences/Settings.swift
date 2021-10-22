@@ -29,7 +29,7 @@ extension Defaults.Keys {
 
 	/// The default browser to fallback to when handling a URL
 	/// Defaults to Safari, as that's the only browser we can more or less guarantee will be installed on the system
-	static let defaultFallbackBrowserBundleIdentifier = Key<String>("defaultFallbackBrowserBundleIdentifier", default: URLOpener.KnownBundleIdentifier.safari.rawValue)
+	static let defaultFallbackBrowserBundleIdentifier = Key<String>("defaultFallbackBrowserBundleIdentifier", default: KnownBundleIdentifier.safari.rawValue)
 
 	// TODO: Find way to gather all url handlers and create defaults settings for them
 

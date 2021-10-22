@@ -43,14 +43,9 @@ final class TwitterHandler: URLHandler {
 		}
 
 		lastURLHandledByTwitterApp = url
+		timeOfLastURLHandledByTwitterApp = Date()
 
-		if #available(macOS 12, *) {
-			timeOfLastURLHandledByTwitterApp = .now
-		} else {
-			timeOfLastURLHandledByTwitterApp = Date()
-		}
-
-		delegate?.open(url: url, usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.twitter.rawValue)
+		delegate?.open(url: url, usingApplicationWithBundleIdentifier: KnownBundleIdentifier.twitter.rawValue)
 	}
 
 	/// This currently works for opening individual posts, but nothing else yet
@@ -74,7 +69,7 @@ final class TwitterHandler: URLHandler {
 		delegate?.open(
 			urlComponents: urlComponents,
 			from: url,
-			usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.tweetbot.rawValue
+			usingApplicationWithBundleIdentifier: KnownBundleIdentifier.tweetbot.rawValue
 		)
 	}
 

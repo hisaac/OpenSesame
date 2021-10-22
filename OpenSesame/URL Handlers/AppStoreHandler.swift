@@ -29,7 +29,7 @@ final class AppStoreHandler: URLHandler {
 		delegate?.open(
 			urlComponents: urlComponents,
 			from: url,
-			usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.appStore.rawValue
+			usingApplicationWithBundleIdentifier: KnownBundleIdentifier.appStore.rawValue
 		)
 	}
 }

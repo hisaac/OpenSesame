@@ -11,24 +11,6 @@ import LSFoundation
 
 final class URLOpener: URLHandlerDelegate {
 
-	enum KnownBundleIdentifier: String {
-		case appStore = "com.apple.AppStore"
-		case music = "com.apple.Music"
-		case news = "com.apple.news"
-		case slack = "com.tinyspeck.slackmacgap"
-		case spotify = "com.spotify.client"
-		case tweetbot = "com.tapbots.Tweetbot3Mac"
-		case twitter = "maccatalyst.com.atebits.Tweetie2"
-		case zoom = "us.zoom.xos"
-
-		// Browsers
-		case chrome = "com.google.Chrome"
-		case firefox = "org.mozilla.firefox"
-		case opera = "com.operasoftware.Opera"
-		case safari = "com.apple.Safari"
-		case safariTechnologyPreview = "com.apple.SafariTechnologyPreview"
-	}
-
 	struct URLOpenAttempt {
 		let url: URL
 		let attemptTime = Date()

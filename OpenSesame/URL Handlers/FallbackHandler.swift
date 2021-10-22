@@ -21,7 +21,7 @@ final class FallbackHandler: URLHandler {
 		var fallbackAppURL: URL
 		if let defaultFallbackAppURL = delegate?.workspace.urlForApplication(withBundleIdentifier: Defaults[.defaultFallbackBrowserBundleIdentifier]) {
 			fallbackAppURL = defaultFallbackAppURL
-		} else if let safariAppURL = delegate?.workspace.urlForApplication(withBundleIdentifier: URLOpener.KnownBundleIdentifier.safari.rawValue) {
+		} else if let safariAppURL = delegate?.workspace.urlForApplication(withBundleIdentifier: KnownBundleIdentifier.safari.rawValue) {
 			fallbackAppURL = safariAppURL
 		} else {
 			// TODO: Implement real error handling/logging

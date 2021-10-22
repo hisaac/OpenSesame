@@ -29,7 +29,7 @@ final class AppleMusicHandler: URLHandler {
 		delegate?.open(
 			urlComponents: urlComponents,
 			from: url,
-			usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.music.rawValue
+			usingApplicationWithBundleIdentifier: KnownBundleIdentifier.music.rawValue
 		)
 	}
 

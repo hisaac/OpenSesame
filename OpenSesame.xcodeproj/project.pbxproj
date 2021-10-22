@@ -22,6 +22,8 @@
 		4AE4C9BD25A248E600FDFE28 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 4AE4C9BC25A248E600FDFE28 /* Preferences */; };
 		4AEA100D25A16B1900D0AF31 /* LSFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 4AEA100C25A16B1900D0AF31 /* LSFoundation */; };
 		9B6830DD26BE25A200E2B2BF /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 9B6830DC26BE25A200E2B2BF /* Defaults */; };
+		9B9D44BF26C01E22006E606A /* URLHandlerPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9D44BE26C01E22006E606A /* URLHandlerPreferencesView.swift */; };
+		9B9E5BD726C3EBEE001C7134 /* KnownBundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E5BD626C3EBEE001C7134 /* KnownBundleIdentifier.swift */; };
 		9BD4E0E526BEA7C9008E25EE /* SlackTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD4E0E426BEA7C9008E25EE /* SlackTeam.swift */; };
 		9BD4E0E826BEB954008E25EE /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 9BD4E0E726BEB954008E25EE /* KeyboardShortcuts */; };
 		9BFC66BA26BDF6C900FFCCF5 /* SlackPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC66B926BDF6C900FFCCF5 /* SlackPreferencesView.swift */; };
@@ -93,6 +95,8 @@
 		4ADA4F6625A2190800893A0A /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
 		4ADA4F6925A2198E00893A0A /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		4ADA4F6D25A21ABB00893A0A /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		9B9D44BE26C01E22006E606A /* URLHandlerPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandlerPreferencesView.swift; sourceTree = "<group>"; };
+		9B9E5BD626C3EBEE001C7134 /* KnownBundleIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownBundleIdentifier.swift; sourceTree = "<group>"; };
 		9BD4E0E426BEA7C9008E25EE /* SlackTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackTeam.swift; sourceTree = "<group>"; };
 		9BFC66B926BDF6C900FFCCF5 /* SlackPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackPreferencesView.swift; sourceTree = "<group>"; };
 		F2A1588925ADF2D4000745EB /* FallbackHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackHandler.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				4ADA4F5F25A2187600893A0A /* Settings.swift */,
 				4A1DFA8A25A24DF700E5739E /* GeneralPreferencesView.swift */,
 				9BFC66B926BDF6C900FFCCF5 /* SlackPreferencesView.swift */,
+				9B9D44BE26C01E22006E606A /* URLHandlerPreferencesView.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			children = (
 				9BD4E0E326BEA7BC008E25EE /* Slack */,
 				4A906D6C25A1691900CF2A5F /* URLOpener.swift */,
+				9B9E5BD626C3EBEE001C7134 /* KnownBundleIdentifier.swift */,
 				F2A158B125AE0AD9000745EB /* URLHandlerDelegate.swift */,
 				F2A1588E25ADF35E000745EB /* URLHandler.swift */,
 				F2A1588925ADF2D4000745EB /* FallbackHandler.swift */,
@@ -399,12 +405,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B9E5BD726C3EBEE001C7134 /* KnownBundleIdentifier.swift in Sources */,
 				F2A158AD25AE079F000745EB /* TwitterHandler.swift in Sources */,
 				F2A158A725AE0395000745EB /* AppleNewsHandler.swift in Sources */,
 				F2A1589725ADF4FE000745EB /* ShortlinkHandler.swift in Sources */,
 				F2A158B225AE0AD9000745EB /* URLHandlerDelegate.swift in Sources */,
 				4A1DFA8C25A24DF700E5739E /* GeneralPreferencesView.swift in Sources */,
 				4ADA4F6725A2190800893A0A /* Enablable.swift in Sources */,
+				9B9D44BF26C01E22006E606A /* URLHandlerPreferencesView.swift in Sources */,
 				9BFC66BA26BDF6C900FFCCF5 /* SlackPreferencesView.swift in Sources */,
 				F2A158AA25AE06BA000745EB /* SlackHandler.swift in Sources */,
 				4ADA4F6A25A2198E00893A0A /* StatusItemController.swift in Sources */,

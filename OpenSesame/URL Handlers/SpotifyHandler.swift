@@ -35,7 +35,7 @@ final class SpotifyHandler: URLHandler {
 		delegate?.open(
 			urlComponents: urlComponents,
 			from: url,
-			usingApplicationWithBundleIdentifier: URLOpener.KnownBundleIdentifier.spotify.rawValue
+			usingApplicationWithBundleIdentifier: KnownBundleIdentifier.spotify.rawValue
 		)
 	}
 

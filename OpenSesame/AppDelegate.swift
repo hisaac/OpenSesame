@@ -36,10 +36,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 				contentView: { GeneralPreferencesView() }
 			),
 			Preferences.Pane(
-				identifier: .slack,
-				title: "Slack",
-				toolbarIcon: NSImage(systemSymbolName: "gearshape", accessibilityDescription: "Slack Preferences")!,
-				contentView: { SlackPreferencesView() }
+				identifier: .urlHandlers,
+				title: "URL Handlers",
+				toolbarIcon: NSImage(systemSymbolName: "link", accessibilityDescription: "URL Handler Preferences")!,
+				contentView: { URLHandlerPreferencesView() }
 			)
 		]
 	)
@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	/// Workaround for a strange issue where the animation for the preferences window does not work correctly
 	/// source: https://github.com/sindresorhus/Preferences/issues/60#issuecomment-886146196
 	func fixPreferencesWindowOddAnimation() {
-		preferencesWindowController.show(preferencePane: .slack)
+		preferencesWindowController.show(preferencePane: .urlHandlers)
 		preferencesWindowController.show(preferencePane: .general)
 		preferencesWindowController.close()
 	}
