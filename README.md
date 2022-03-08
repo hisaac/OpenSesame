@@ -1,8 +1,14 @@
 # OpenSesame
 
-**🚧 OpenSesame is very much a work in progress 🚧**
+OpenSesame was an app for opening links in macOS apps instead of the web browser.
 
-OpenSesame is an app for opening links in macOS apps instead of the web browser.
+## ⚠️ OpenSesame is no longer under active development ⚠️
+
+This was a really fun project to work on, but I will no longer be actively developing on the project. I'm leaving it here in case there is any code that could still be useful to others.
+
+If you're looking for something like OpenSesame that _is_ still being developed, I'll direct you to [OpenIn](https://loshadki.app/openin/). It does most of what I had planned for OpenSesame to do, and then some.
+
+👋
 
 ## Currently supported Links/Apps
 
